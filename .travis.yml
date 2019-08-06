@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+- 8
+cache:
+  directories:
+  - node_modules
+script:
+- npm run build
+- npm test
+deploy:
+  provider: firebase
+  token:
+    secure: 'pBU3TMIDxMYENYSGBeLwf9FuZ7dmljBu4FcfEMi2yfKZ8TUxcKxo4IvmPzwixHpXoCHsgBWO5QGaH/GQp/7buq9R3vITxTt/TzifnJBir12m6mkvzJBNp4BRdEjjB5pVeJLv/v+Ln82xjtKi06u6mCLqkw9PuzRYplTIcn40dxS14woazMMqji3rzxhc/a38Txrt1cV4+QhGjziyMWJTq8xKOMGTengQIihKsCz01qQUTq5DNHFzKWtXzcXj5kNBkcVyeCLEmOYiX/vTCtWIcftO9HnLa7Ww+jHXJUxq8YVdFCr0uEc8FISA5nD164aTzOduFVfmvGLksVcypM6LM0MPquimK7sO1op42QgVVpVz839Loa0wVUljuTCB0hJ5JVqnSF1DbzLDaL/KjBcXQGAErx+THTd8IIa0QNXy7gSYWPyjsO6449MReiS8hZraqD2zSc8Aepk2YtOJO2LnAz3aeBXCZ3KG0I84Rj5dUe+QBQRsjrLEguFSWSvm+41pwqZ01Q5gWNLS1kjXn6N1yZJlH39hWhhhLC3WhbmGhcubZFsokhj1Xj2ILY9PwyNgeKYUknE3JBt6an8U/3hUqF7ao4sfFMS5uVH4L4UJBWeSf0brL6AHazmntOiuOk3R6m7BvJf0Zj5jUy2njOIfOk/BKNOPo8kf8WRiP4AUtxU='
