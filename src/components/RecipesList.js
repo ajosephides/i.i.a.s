@@ -23,23 +23,16 @@ class RecipesList extends React.Component {
   }
 
   onHandleSubmit(event) {
-<<<<<<< HEAD
     const ingredients = [this.state['ing1'],this.state['ing2'],this.state['ing3']].join(',')
     const api = "https://spoon-call.herokuapp.com/?ingredients=" + ingredients
-=======
-    const ingredients = [this.state['ing1'],this.state['ing2'],this.state['ing3']].join(',+')
-    const api = 'https://api.spoonacular.com/recipes/findByIngredients?ingredients='+ ingredients +'&number=5&' + Api_Key;
->>>>>>> d4b220de7566f6d8af2a359e608a3a2a40440150
     fetch(api)
       .then(promise => {
         return promise.json();
       }).then(data => {
-        console.log(data);
         let recipes = data.map((recipe) => {
           return <Recipe key={recipe.id} recipe={recipe} />;
         });
         this.setState({recipes: recipes})
-        console.log(this.state)
       });
     event.preventDefault();
   }
