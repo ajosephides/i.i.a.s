@@ -7,7 +7,6 @@ class InputForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-
   handleChange(event) {
     this.props.onHandleChange(event)
   }
@@ -17,7 +16,6 @@ class InputForm extends React.Component {
     event.preventDefault()
   }
 
-
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
@@ -26,7 +24,7 @@ class InputForm extends React.Component {
           <input type="text" name = "ing1" value={this.props.ing1} onChange={this.handleChange} />
         </label>
         <br />
-        <label> Ingredient 2: 
+        <label> Ingredient 2:
           <input type="text" name = "ing2" value={this.props.ing2} onChange={this.handleChange} />
         </label>
         <br />

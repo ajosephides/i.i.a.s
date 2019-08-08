@@ -1,7 +1,6 @@
 import React from 'react';
 import InputForm from './InputForm'
 import Recipe from './Recipe'
-const Api_Key = process.env.React_App_Api_Key
 
 class RecipesList extends React.Component {
   constructor(props) {
@@ -23,17 +22,16 @@ class RecipesList extends React.Component {
   }
 
   onHandleSubmit(event) {
-    const ingredients = [this.state['ing1'],this.state['ing2'],this.state['ing3']].join(',+')
-    const api = 'https://api.spoonacular.com/recipes/findByIngredients?ingredients='+ ingredients +'&number=5&' + Api_Key;
+    const ingredients = [this.state['ing1'],this.state['ing2'],this.state['ing3']].join(',')
+    const api = "https://spoon-call.herokuapp.com/?ingredients=" + ingredients
     fetch(api)
       .then(promise => {
         return promise.json();
       }).then(data => {
         let recipes = data.map((recipe) => {
-          return <Recipe key={recipe.id} recipe={recipe} />;
+          return {id:recipe.id, title:recipe.title, image:recipe.image};
         });
         this.setState({recipes: recipes})
-        console.log(this.state)
       });
     event.preventDefault();
   }
@@ -42,15 +40,23 @@ class RecipesList extends React.Component {
   render() {
     return (
       <div>
-      <InputForm ing1={this.state.ing1}
-                 ing2={this.state.ing2}
-                 ing3={this.state.ing3}
-                 onHandleChange={this.onHandleChange}
-                 onHandleSubmit={this.onHandleSubmit}
-                 />
+        <div>
+          <InputForm ing1={this.state.ing1}
+                     ing2={this.state.ing2}
+                     ing3={this.state.ing3}
+                     onHandleChange={this.onHandleChange}
+                     onHandleSubmit={this.onHandleSubmit}
+                     />
+        </div>
 
-      <div>{this.state.recipes}</div>
-
+        <ul>
+          {this.state.recipes.map((recipe) =>{
+            return <Recipe key={recipe.id}
+                           title={recipe.title}
+                           image={recipe.image} />;
+          })
+          }
+        </ul>
       </div>
     );
   }
