@@ -2,7 +2,6 @@ import React from 'react';
 import InputForm from './InputForm'
 import Recipe from './Recipe'
 const Api_Key = process.env.React_App_Api_Key
-console.log(Api_Key)
 
 class RecipesList extends React.Component {
   constructor(props) {
@@ -25,7 +24,7 @@ class RecipesList extends React.Component {
 
   onHandleSubmit(event) {
     const ingredients = [this.state['ing1'],this.state['ing2'],this.state['ing3']].join(',+')
-    const api = 'https://api.spoonacular.com/recipes/findByIngredients?ingredients='+ ingredients +'&number=5&'
+    const api = 'https://api.spoonacular.com/recipes/findByIngredients?ingredients='+ ingredients +'&number=5&' + Api_Key;
     fetch(api)
       .then(promise => {
         return promise.json();
@@ -34,6 +33,7 @@ class RecipesList extends React.Component {
           return <Recipe key={recipe.id} recipe={recipe} />;
         });
         this.setState({recipes: recipes})
+        console.log(this.state)
       });
     event.preventDefault();
   }
