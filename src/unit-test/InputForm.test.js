@@ -1,6 +1,9 @@
 import '../setupTests.js'
 import InputForm from '../components/InputForm';
-import { exportAllDeclaration } from '@babel/types';
+
+beforeEach(() => {
+  ;
+});
 
 it('renders without crashing', () => {
   shallow(<InputForm />);
@@ -13,12 +16,22 @@ it('render a form', () => {
 
 it('render 3 text boxes', () => {
   const wrapper = shallow(<InputForm />);
-  // const inputs = [[<input></input>, <input></input>, <input></input>, <input></input>]]
-  // expect(wrapper.containsMatchingElement(inputs)).toEqual(true);
+  expect(wrapper.find({ name: "ing1" })).toHaveLength(1);
+  expect(wrapper.find({ name: "ing2" })).toHaveLength(1);
+  expect(wrapper.find({ name: "ing3" })).toHaveLength(1);
+});
+
+it('render 1 submit button', () => {
+  const wrapper = shallow(<InputForm />);
+  expect(wrapper.find({ type: "submit" })).toHaveLength(1);
 });
 
 it('renders without crashing', () => {
-  const wrapper = mount(<InputForm />);
+  const wrapper = shallow(<InputForm />);
   expect(wrapper.text()).toEqual("Ingredient 1: Ingredient 2:Ingredient 3:");
-  wrapper.unmount();
+});
+
+it('call function handleChange on click', () => {
+
+  expect(wrapper.handleChange).toBeCalled();
 });
