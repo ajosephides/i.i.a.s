@@ -2,12 +2,11 @@ import React from 'react';
 
 class Recipe extends React.Component {
   render() {
-    const recipe = this.props.recipe;
-    console.log(recipe);
+    const props = this.props
     return (
       <div>
-        <h1>{recipe.title}</h1>
-        <img alt={recipe.title}  src={recipe.image}/>
+        <h1>{props.title}</h1>
+        <img alt={props.title}  src={props.image}/>
       </div>
     )
   }
