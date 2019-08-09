@@ -1,10 +1,16 @@
-import '../setupTests.js'
-import App from '../App';
+// import '../setupTests.js'
+// import App from '../App';
 
-xit('renders without crashing', () => {
-  const wrapper = mount(<App />);
-  const input = wrapper.find('#input1')
-  input.simulate("change", { target: { value: "potatoes" }})
-  // expect(wrapper.text()).toEqual("potatoes");
-});
+// describe('The main app', () => {
+//   let app;
+//   beforeEach(() => {
+//       app  = mount(<App/>);
+//   })
+
+//   it('the app should have text', () => {
+//     app.simulate("change", { target: { value: "foo" }})
+//     app.simulate('click');
+//     expect(app.text()).toBe('ingredient');
+//   });
+// });
 
