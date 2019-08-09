@@ -52,6 +52,7 @@ class RecipesList extends React.Component {
         <ul>
           {this.state.recipes.map((recipe) =>{
             return <Recipe key={recipe.id}
+                           id={recipe.id}
                            title={recipe.title}
                            image={recipe.image} />;
           })
