@@ -3,7 +3,7 @@ import InputForm from '../components/InputForm';
 
 let wrapper;
 beforeEach( () => {
-  wrapper = shallow(<InputForm />)
+  wrapper = shallow(<InputForm onHandleChange={function(){}}/>)
 })
 
 it('renders without crashing', () => {
@@ -28,8 +28,21 @@ it('renders without crashing', () => {
   expect(wrapper.text()).toEqual("Ingredient 1: Ingredient 2:Ingredient 3:");
 });
 
-it('call function handleChange on click', () => {
-  const input1 = wrapper.find({ type: "ing1" })
-  input1.simulate('change', { target: { value: "pasta" } })
-  expect(wrapper.handleSubmit).toHaveBeenCalled();
+it('call function onHandleChange on text field change', () => {
+  const onHandleChangeMock = jest.fn()
+  const wrapper = shallow(<InputForm onHandleChange={onHandleChangeMock}/>)
+  const instance = wrapper.instance()
+  const input1 = wrapper.find({ name: "ing1" })
+  input1.simulate('change')
+  expect(onHandleChangeMock).toHaveBeenCalled()
+});
+
+it('call function onHandleSubmit on submit', () => {
+  const onHandleSubmitMock = jest.fn()
+  const wrapper = shallow(<InputForm onHandleSubmit={onHandleSubmitMock}/>)
+  const instance = wrapper.instance()
+  const input1 = wrapper.find('form')
+  const eventMock = {preventDefault:function(){}}
+  input1.simulate('submit', eventMock)
+  expect(onHandleSubmitMock).toBeCalled()
 });
