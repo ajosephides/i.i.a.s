@@ -28,8 +28,9 @@ it('renders without crashing', () => {
   expect(wrapper.text()).toEqual("Ingredient 1: Ingredient 2:Ingredient 3:");
 });
 
-it('call function handleChange on click', () => {
-  const input1 = wrapper.find({ type: "ing1" })
-  input1.simulate('change', { target: { value: "pasta" } })
-  expect(wrapper.handleSubmit).toHaveBeenCalled();
+xit('call function handleChange on click', () => {
+  const wrapper1 = shallow(<InputForm onHandleChange={function() {}}/>)
+  const onHandleChangeSpy = spyOn(window, 'handleChangeMock')
+  wrapper1.find({ name: "ing1" }).simulate('change', {}, 'potatoes')
+  expect(onHandleChangeSpy)
 });
