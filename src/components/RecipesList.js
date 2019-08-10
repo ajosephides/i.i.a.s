@@ -9,8 +9,7 @@ class RecipesList extends React.Component {
       recipes: [],
       ing1: '',
       ing2: '',
-      ing3: '',
-      ingredients: []
+      ing3: ''
     };
 
     this.onHandleChange = this.onHandleChange.bind(this);
@@ -19,8 +18,6 @@ class RecipesList extends React.Component {
 
 
   onHandleChange(event) {
-    this.setState = []
-    
     this.setState({[event.target.name]: event.target.value});
   }
 
