@@ -1,4 +1,4 @@
-import '../setupTests.js'
+import '../setupTest.js'
 import Recipe from '../components/Recipe';
 
 it('renders without crashing', () => {
