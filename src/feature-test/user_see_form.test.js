@@ -5,6 +5,7 @@ describe('I.I.A.S', () => {
   it('the user can upload recipes inputing ingredients', async () => {
     const browser = await puppeteer.launch({
       slowMo: 40,
+      // This two lines below allows the dev to see the flow on the chromium page
       // headless: false,
       // devtools: true
     });
@@ -21,8 +22,6 @@ describe('I.I.A.S', () => {
             [{id: 6, title: "Champ (Mashed Potatoes from Ulster)", image: "https://spoonacular.com/recipeImages/697254-312x231.jpg"}]        
           )
         })
-      } else {
-        console.log('oops')
       }
     });
     await page.click('input[type="submit"]');
