@@ -31,7 +31,6 @@ it('renders without crashing', () => {
 it('call function onHandleChange on text field change', () => {
   const onHandleChangeMock = jest.fn()
   const wrapper = shallow(<InputForm onHandleChange={onHandleChangeMock}/>)
-  const instance = wrapper.instance()
   const input1 = wrapper.find({ name: "ing1" })
   input1.simulate('change')
   expect(onHandleChangeMock).toHaveBeenCalled()
@@ -40,7 +39,6 @@ it('call function onHandleChange on text field change', () => {
 it('call function onHandleSubmit on submit', () => {
   const onHandleSubmitMock = jest.fn()
   const wrapper = shallow(<InputForm onHandleSubmit={onHandleSubmitMock}/>)
-  const instance = wrapper.instance()
   const input1 = wrapper.find('form')
   const eventMock = {preventDefault:function(){}}
   input1.simulate('submit', eventMock)
