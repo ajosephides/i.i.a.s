@@ -1,5 +1,5 @@
 import App from './App';
-import './setupTests.js'
+import './setupTest.js'
 
 it('renders without crashing', () => {
   const wrapper = shallow(<App />);
