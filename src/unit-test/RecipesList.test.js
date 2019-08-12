@@ -1,4 +1,4 @@
-import '../setupTests.js'
+import '../setupTest.js'
 import RecipesList from '../components/RecipesList';
 import { tsExternalModuleReference } from '@babel/types';
 

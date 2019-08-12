@@ -1,4 +1,4 @@
-import '../setupTests.js'
+import '../setupTest.js'
 import InputForm from '../components/InputForm';
 
 let wrapper;

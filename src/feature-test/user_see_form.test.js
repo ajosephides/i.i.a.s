@@ -1,4 +1,4 @@
-import '../setupTests.js'
+import '../setupTest.js'
 
 
 describe('I.I.A.S', () => {
