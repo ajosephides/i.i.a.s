@@ -8,28 +8,41 @@ class Recipe extends React.Component {
       showRecipeExpanded: false
     };
     this.handleClick = this.handleClick.bind(this);
+    this.showRecipeExpanded = this.showRecipeExpanded.bind(this);
   }
 
   handleClick(event) {
-    this.setState(
-      this.state.showRecipeExpanded: !this.state.showRecipeExpanded
+    this.setState(prevState => ({
+        showRecipeExpanded: !prevState.showRecipeExpanded
+      })
     );
+    console.log(this.state.showRecipeExpanded)
+    // event.preventDefault()
+  }
+
+  showRecipeExpanded() {
+    if (this.state.showRecipeExpanded) {
+      return <div><RecipeExpanded id={this.props.id}/></div>
+    } else {
+      return null
+    }
   }
 
   render() {
     const props = this.props
     return (
       <div>
-      <a href="#" onClick={handleClick}>
-        {props.title}
-      </a>
-        <img alt={props.title}  src={props.image}/>
-      </div>
+        <div>
+        <a onClick={this.handleClick}>
+          {props.title}
+        </a>
+          <img alt={props.title}  src={props.image}/>
+        </div>
 
-      {if ( this.state.showRecipeExpanded ) {
-        return (<div><RecipeExpanded id={props.id}/></div>)
-        }
-      }
+        <div>
+          {this.showRecipeExpanded()}
+        </div>
+      </div>
     )
   }
 }
