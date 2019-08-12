@@ -4,11 +4,11 @@ export default function() {
       Promise.resolve([
         {
           id: 0,
-          name: 'Mashed Potatoes'
+          title: 'Mashed Potatoes'
         },
         {
           id: 1,
-          name: 'Pastrami'
+          title: 'Pastrami'
         }
       ])
   });
