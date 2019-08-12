@@ -6,8 +6,8 @@ addons:
   hostname: localhost
 before_install:
   - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
-before_script:
-  - yarn start &
+# before_script:
+#   - npm start &
 cache:
   directories:
   - node_modules
