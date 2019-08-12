@@ -17,7 +17,7 @@ class Recipe extends React.Component {
       })
     );
     console.log(this.state.showRecipeExpanded)
-    // event.preventDefault()
+    event.preventDefault()
   }
 
   showRecipeExpanded() {
@@ -33,7 +33,7 @@ class Recipe extends React.Component {
     return (
       <div>
         <div>
-        <a onClick={this.handleClick}>
+        <a href="recipe" onClick={this.handleClick}>
           {props.title}
         </a>
           <img alt={props.title}  src={props.image}/>
