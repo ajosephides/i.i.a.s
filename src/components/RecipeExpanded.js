@@ -5,23 +5,43 @@ class RecipeExpanded extends React.Component {
     super(props);
     this.state = {
       steps: [],
-      ingredients: []
+      ingredients: [],
+      steps: []
     };
 
     this.componentDidMount = this.componentDidMount.bind(this);
   }
 
   componentDidMount() {
-    // const id = this.props.id
-    // const api = " "
-    this.setState({steps: stepData[0].steps.map(function (step) {
-        return <li key={step.number}>{step.step}</li>
-      })
-    })
-    this.setState({ingredients: ingredientData.extendedIngredients.map(function (ingredient) {
-        return <li key={ingredient.id}>{ingredient.original}</li>
-      })
-    })
+    this.getIngredients()
+    this.getInstructions()
+  }
+
+  getIngredients() {
+    const api = "https://spoon-call.herokuapp.com/ingredients?id="+this.props.id
+    fetch(api)
+      .then(promise => {
+        return promise.json();
+      }).then(data => {
+        console.log(data)
+        let ingredients = data.extendedIngredients.map((ingredient) => {
+            return <li key={ingredient.id}>{ingredient.original}</li>
+          });
+        this.setState({ingredients: ingredients})
+      });
+  }
+
+  getInstructions() {
+    const api = "https://spoon-call.herokuapp.com/instructions?id="+this.props.id
+    fetch(api)
+      .then(promise => {
+        return promise.json();
+      }).then(data => {
+      let steps = data[0].steps.map((step) => {
+          return <li key={step.number}>{step.step}</li>
+        });
+      this.setState({steps: steps})
+      });
   }
 
   render() {
