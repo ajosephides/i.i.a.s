@@ -15,9 +15,9 @@ it('render a form', () => {
 });
 
 it('render 3 text boxes', () => {
-  expect(wrapper.find({ name: "ing1" })).toHaveLength(1);
-  expect(wrapper.find({ name: "ing2" })).toHaveLength(1);
-  expect(wrapper.find({ name: "ing3" })).toHaveLength(1);
+  expect(wrapper.find({ name: "ing" })).toHaveLength(1);
+  // expect(wrapper.find({ name: "ing2" })).toHaveLength(1);
+  // expect(wrapper.find({ name: "ing3" })).toHaveLength(1);
 });
 
 it('render 1 submit button', () => {
