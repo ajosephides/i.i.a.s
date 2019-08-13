@@ -48,7 +48,9 @@ class RecipesList extends React.Component {
                      onHandleSubmit={this.onHandleSubmit}
                      />
         </div>
-
+        <div id='ing-list'>
+          <IngredientsList ingredients={this.state.ingredients} />
+        </div>
         <ul>
           {this.state.recipes.map((recipe) =>{
             return <Recipe key={recipe.id}
