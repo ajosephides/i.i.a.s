@@ -14,7 +14,7 @@ it('render a form', () => {
   expect(wrapper.type()).toEqual('form')
 });
 
-it('render 3 text boxes', () => {
+it('render 1 text box', () => {
   expect(wrapper.find({ name: "ing" })).toHaveLength(1);
 });
 
@@ -22,7 +22,7 @@ it('render 1 submit button', () => {
   expect(wrapper.find({ type: "submit" })).toHaveLength(1);
 });
 
-it('renders without crashing', () => {
+it('the page includes text Ingredients and Add', () => {
   expect(wrapper.text()).toEqual("Ingredients:Add");
 });
 
@@ -41,14 +41,6 @@ it('call function onHandleSubmit on submit', () => {
   const eventMock = {preventDefault:function(){}}
   input1.simulate('click', eventMock)
   expect(onHandleSubmitMock).toBeCalled()
-});
-
-it('call function handleSubmit on submit', () => {
-  const onHandleSubmitMock = jest.fn()
-  const wrapper = shallow(<InputForm onHandleSubmit={onHandleSubmitMock}/>)
-  const instance = wrapper.instance();
-  const eventMock = {preventDefault:function(){}}
-  expect(instance.handleSubmit(eventMock)).toBe(undefined)
 });
 
 it('call function onHandleChangeAdd on click', () => {
