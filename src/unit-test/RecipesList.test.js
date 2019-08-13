@@ -36,6 +36,7 @@ describe('#onHandleChangeAdd', () => {
     instance.onHandleChangeAdd();
     expect(wrapper.state('ing')).toEqual('');
   });
+  
   test('reset the state ing', () => {
     const wrapper = shallow(<RecipesList />);
     const instance = wrapper.instance()
