@@ -21,6 +21,7 @@ class RecipesList extends React.Component {
 
   onHandleChangeAdd() {
     this.state.ingredients.push(this.state.ing);
+    this.setState({ing: ""})
     console.log(this.state.ingredients)
   };
 

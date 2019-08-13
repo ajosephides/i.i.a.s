@@ -18,8 +18,8 @@ class InputForm extends React.Component {
   }
 
   handleSubmit(event) {
-    event.preventDefault();
     this.props.onHandleSubmit(event);
+    event.preventDefault();
   }
 
   render() {
@@ -29,10 +29,6 @@ class InputForm extends React.Component {
           Ingredients:
           <input type="text" name = "ing" value={this.props.ing} onChange={this.handleChange} />
           <button id='add-button' onClick={this.handleChangeAdd}>
-              {/* {" "} */}
-              {/* <icon> */}
-                {/* <AddCircle /> */}
-             {/* </icon>{" "} */}
               Add
             </button>
         </label>
