@@ -1,13 +1,13 @@
 import '../setupTest.js'
-
+import fetch from '../unit-test/mocks/fetch';
 
 describe('I.I.A.S', () => {
   it('the user sees expanded recipe when clicking on title', async () => {
     const browser = await puppeteer.launch({
-      slowMo: 40,
+      // slowMo: 40,
       // This two lines below allows the dev to see the flow on the chromium page
-      headless: false,
-      devtools: true
+      // headless: false,
+      // devtools: true
     });
     const page = await browser.newPage();
     await page.goto('http://localhost:3000/');
@@ -41,7 +41,9 @@ describe('I.I.A.S', () => {
     });
     await page.click('input[type="submit"]');
     page.on('response', response => { response.body })
+    await page.waitForSelector('a[href="recipe"]')
     await page.click('a[href="recipe"]')
+    await page.waitForSelector('#recipe-expanded')
     const found_instruction = await page.evaluate(() => window.find('preheat the oven to 200 C'));
     expect(found_instruction).toBe(true)
     const found_ingredient = await page.evaluate(() => window.find('1 Tbsp butter'));
