@@ -29,7 +29,6 @@ describe('I.I.A.S', () => {
       }
     });
     await page.click('input[type="submit"]');
-    page.on('response', response => { response.body })
     await page.waitForSelector('img')
     const found = await page.evaluate(() => window.find("Champ"));
     expect(found).toBe(true)
