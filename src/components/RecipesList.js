@@ -1,6 +1,7 @@
 import React from 'react';
 import InputForm from './InputForm'
 import Recipe from './Recipe'
+import IngredientsList from './IngredientsList'
 
 class RecipesList extends React.Component {
   constructor(props) {
