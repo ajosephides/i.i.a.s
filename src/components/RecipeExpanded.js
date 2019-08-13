@@ -22,7 +22,6 @@ class RecipeExpanded extends React.Component {
       .then(promise => {
         return promise.json();
       }).then(data => {
-        console.log(data)
         let ingredients = data.extendedIngredients.map((ingredient) => {
             return <li key={ingredient.id}>{ingredient.original}</li>
           });
