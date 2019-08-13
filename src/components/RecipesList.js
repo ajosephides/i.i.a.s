@@ -35,6 +35,7 @@ class RecipesList extends React.Component {
           return {id:recipe.id, title:recipe.title, image:recipe.image};
         });
         this.setState({recipes: recipes})
+        this.setState({ingredients: []})
       });
     event.preventDefault();
   };
