@@ -22,7 +22,6 @@ class RecipesList extends React.Component {
   onHandleChangeAdd() {
     this.state.ingredients.push(this.state.ing);
     this.setState({ing: ""})
-    console.log(this.state.ingredients)
   };
 
   onHandleSubmit(event) {
@@ -32,7 +31,6 @@ class RecipesList extends React.Component {
       .then(promise => {
         return promise.json();
       }).then(data => {
-        console.log(data)
         let recipes = data.map((recipe) => {
           return {id:recipe.id, title:recipe.title, image:recipe.image};
         });

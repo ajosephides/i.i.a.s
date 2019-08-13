@@ -7,8 +7,8 @@ describe('I.I.A.S', () => {
     const browser = await puppeteer.launch({
       slowMo: 40,
       // This two lines below allows the dev to see the flow on the chromium page
-      headless: false,
-      devtools: true
+      // headless: false,
+      // devtools: true
     });
     const page = await browser.newPage();
     await page.goto('http://localhost:3000/');
