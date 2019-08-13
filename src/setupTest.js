@@ -2,7 +2,6 @@ import React from "react";
 import { shallow, render, mount } from "enzyme";
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import fetch from './unit-test/mocks/fetch';
 const puppeteer = require('puppeteer');
 
 configure({ adapter: new Adapter() });
