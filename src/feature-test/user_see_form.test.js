@@ -1,5 +1,5 @@
 import '../setupTest.js'
-import fetch from '../unit-test/mocks/fetch';
+import fetch from '../unit-test/mocks/recipeListFetch';
 
 describe('I.I.A.S', () => {
   it('the user can upload recipes inputing ingredients', async () => {
