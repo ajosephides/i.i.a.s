@@ -25,7 +25,6 @@ class RecipesList extends React.Component {
   };
 
   onHandleSubmit(event) {
-    console.log(this.state.ingredients.join(','))
     const api = "https://spoon-call.herokuapp.com/?ingredients=" + this.state.ingredients.join(',')
     fetch(api)
       .then(promise => {
