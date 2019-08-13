@@ -8,7 +8,7 @@ it('renders without crashing', () => {
 });
 
 describe('#onHandleSubmit', () => {
-  test('retuns json data from the API call', () => {
+  it('retuns json data from the API call', () => {
     const fetchSpy = jest.spyOn(window, 'fetch');
     const setState = jest.fn()
     const wrapper = shallow(<RecipesList />);
@@ -19,7 +19,7 @@ describe('#onHandleSubmit', () => {
 })
 
 describe('#onHandleChange', () => {
-  test('calls this.state to change ingredient state', () => {
+  it('calls this.state to change ingredient state', () => {
     const wrapper = shallow(<RecipesList />);
     const instance = wrapper.instance()
     const eventMock = {target: {name:'ing', value:'test'} }
@@ -29,19 +29,19 @@ describe('#onHandleChange', () => {
 })
 
 describe('#onHandleChangeAdd', () => {
-  test('push the current ingredient into the ', () => {
+  it('push the current ingredient into the array', () => {
     const wrapper = shallow(<RecipesList />);
     const instance = wrapper.instance()
-    wrapper.state.ing = 'test'
+    instance.state.ing = 'test'
     instance.onHandleChangeAdd();
-    expect(wrapper.state('ing')).toEqual('');
+    expect(instance.state.ingredients).toEqual(['test']);
   });
   
-  test('reset the state ing', () => {
+  it('reset the state ing', () => {
     const wrapper = shallow(<RecipesList />);
     const instance = wrapper.instance()
-    wrapper.state.ing = 'test'
+    instance.state.ing = 'test'
     instance.onHandleChangeAdd();
-    expect(wrapper.state('ing')).toEqual('');
+    expect(instance.state.ing).toEqual('');
   })
 })
