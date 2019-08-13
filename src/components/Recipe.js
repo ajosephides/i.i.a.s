@@ -16,7 +16,6 @@ class Recipe extends React.Component {
         showRecipeExpanded: !prevState.showRecipeExpanded
       })
     );
-    console.log(this.state.showRecipeExpanded)
     event.preventDefault()
   }
 
