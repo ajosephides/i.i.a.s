@@ -4,14 +4,13 @@ class IngredientsList extends React.Component {
   render() {
     const props = this.props
     return (
-      <ul>
+      <ul id='ingredients'>
       {props.ingredients.map((ingredient) => {
-        <li>ingredient</li>
+        return <li key={ingredient}>{ingredient}</li>
       }
-      )};
+      )}
       </ul>
     )
   }
 }
-
-export default Recipe
+export default IngredientsList
