@@ -9,9 +9,13 @@ describe('I.I.A.S', () => {
       });
       const page = await browser.newPage();
       await page.goto('http://localhost:3000/');
-      await page.type('input[name="ing1"]', 'potatoes');
-      await page.type('input[name="ing2"]', 'sugar');
-      await page.type('input[name="ing3"]', 'milk');
+      await page.waitForSelector('input[name="ing"]')
+      await page.type('input[name="ing"]', 'potatoes');
+      await page.click('#add-button');
+      await page.type('input[name="ing"]', 'sugar');
+      await page.click('#add-button');
+      await page.type('input[name="ing"]', 'milk');
+      await page.click('#add-button');
       await page.setRequestInterception(true);
       await page.on('request', interceptedRequest => {
         if(interceptedRequest.resourceType(fetch)) {

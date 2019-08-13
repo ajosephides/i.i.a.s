@@ -8,25 +8,27 @@ class RecipesList extends React.Component {
     super(props);
     this.state = {
       recipes: [],
-      ing1: '',
-      ing2: '',
-      ing3: '',
+      ing: '',
+      ingredients: [],
       showDataLoading: false
     };
-
     this.onHandleChange = this.onHandleChange.bind(this);
+    this.onHandleChangeAdd = this.onHandleChangeAdd.bind(this);
     this.onHandleSubmit = this.onHandleSubmit.bind(this);
-  }
-
+  };
 
   onHandleChange(event) {
     this.setState({[event.target.name]: event.target.value});
-  }
+  };
+
+  onHandleChangeAdd() {
+    this.state.ingredients.push(this.state.ing);
+    this.setState({ing: ""})
+  };
 
   onHandleSubmit(event) {
     this.setState({showDataLoading: true});
-    const ingredients = [this.state['ing1'],this.state['ing2'],this.state['ing3']].join(',')
-    const api = "https://spoon-call.herokuapp.com/?ingredients=" + ingredients
+    const api = "https://spoon-call.herokuapp.com/?ingredients=" + this.state.ingredients.join(',')
     fetch(api)
       .then(promise => {
         return promise.json();
@@ -37,17 +39,16 @@ class RecipesList extends React.Component {
         this.setState({recipes: recipes, showDataLoading: false})
       });
     event.preventDefault();
-  }
+  };
 
 
   render() {
     return (
       <div>
         <div>
-          <InputForm ing1={this.state.ing1}
-                     ing2={this.state.ing2}
-                     ing3={this.state.ing3}
+          <InputForm ing={this.state.ing}
                      onHandleChange={this.onHandleChange}
+                     onHandleChangeAdd={this.onHandleChangeAdd}
                      onHandleSubmit={this.onHandleSubmit}
                      />
         </div>
@@ -68,6 +69,6 @@ class RecipesList extends React.Component {
       </div>
     );
   }
-}
+};
 
 export default RecipesList
