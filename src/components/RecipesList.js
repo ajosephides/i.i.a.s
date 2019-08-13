@@ -1,6 +1,7 @@
 import React from 'react';
 import InputForm from './InputForm'
 import Recipe from './Recipe'
+import DataLoading from './DataLoading'
 
 class RecipesList extends React.Component {
   constructor(props) {
@@ -9,7 +10,8 @@ class RecipesList extends React.Component {
       recipes: [],
       ing1: '',
       ing2: '',
-      ing3: ''
+      ing3: '',
+      showDataLoading: false
     };
 
     this.onHandleChange = this.onHandleChange.bind(this);
@@ -22,6 +24,7 @@ class RecipesList extends React.Component {
   }
 
   onHandleSubmit(event) {
+    this.setState({showDataLoading: true});
     const ingredients = [this.state['ing1'],this.state['ing2'],this.state['ing3']].join(',')
     const api = "https://spoon-call.herokuapp.com/?ingredients=" + ingredients
     fetch(api)
@@ -31,7 +34,7 @@ class RecipesList extends React.Component {
         let recipes = data.map((recipe) => {
           return {id:recipe.id, title:recipe.title, image:recipe.image};
         });
-        this.setState({recipes: recipes})
+        this.setState({recipes: recipes, showDataLoading: false})
       });
     event.preventDefault();
   }
@@ -57,6 +60,11 @@ class RecipesList extends React.Component {
           })
           }
         </ul>
+
+        <div>
+          <DataLoading showDataLoading={this.state.showDataLoading} />
+        </div>
+
       </div>
     );
   }
