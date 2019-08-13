@@ -22,8 +22,25 @@ describe('#onHandleChange', () => {
   test('calls this.state to change ingredient state', () => {
     const wrapper = shallow(<RecipesList />);
     const instance = wrapper.instance()
-    const eventMock = {target: {name:'ing1', value:'test'} }
+    const eventMock = {target: {name:'ing', value:'test'} }
     instance.onHandleChange(eventMock);
-    expect(wrapper.state('ing1')).toEqual('test');
+    expect(wrapper.state('ing')).toEqual('test');
+  })
+})
+
+describe('#onHandleChangeAdd', () => {
+  test('push the current ingredient into the ', () => {
+    const wrapper = shallow(<RecipesList />);
+    const instance = wrapper.instance()
+    wrapper.state.ing = 'test'
+    instance.onHandleChangeAdd();
+    expect(wrapper.state('ing')).toEqual('');
+  });
+  test('reset the state ing', () => {
+    const wrapper = shallow(<RecipesList />);
+    const instance = wrapper.instance()
+    wrapper.state.ing = 'test'
+    instance.onHandleChangeAdd();
+    expect(wrapper.state('ing')).toEqual('');
   })
 })
