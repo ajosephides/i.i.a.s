@@ -43,10 +43,10 @@ describe('I.I.A.S', () => {
     await page.waitForSelector('a[href="recipe"]')
     await page.click('a[href="recipe"]')
     await page.waitForSelector('#recipe-expanded')
-    const found_instruction = await page.evaluate(() => window.find('preheat the oven to 200 C'));
-    expect(found_instruction).toBe(true)
     const found_ingredient = await page.evaluate(() => window.find('1 Tbsp butter'));
     expect(found_ingredient).toBe(true)
+    const found_instruction = await page.evaluate(() => window.find('preheat the oven to 200 C'));
+    expect(found_instruction).toBe(true)
     await browser.close();
   });
 });
