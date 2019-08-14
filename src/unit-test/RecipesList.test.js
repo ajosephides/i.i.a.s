@@ -1,6 +1,8 @@
 import '../setupTest.js'
 import RecipesList from '../components/RecipesList';
 import { tsExternalModuleReference } from '@babel/types';
+import fetch from '../unit-test/mocks/recipeListFetch';
+global.fetch = fetch;
 
 
 it('renders without crashing', () => {
