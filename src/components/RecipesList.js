@@ -52,7 +52,7 @@ class RecipesList extends React.Component {
                      onHandleSubmit={this.onHandleSubmit}
                      />
         </div>
-
+        <div>
         <ul>
           {this.state.recipes.map((recipe) =>{
             return <Recipe key={recipe.id}
@@ -61,14 +61,12 @@ class RecipesList extends React.Component {
           })
           }
         </ul>
-
+        </div>
         <div>
           <DataLoading showDataLoading={this.state.showDataLoading} />
         </div>
-
       </div>
     );
   }
 };
-
 export default RecipesList
