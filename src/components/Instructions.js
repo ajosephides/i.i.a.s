@@ -8,11 +8,13 @@ class Instructions extends React.Component {
     };
 
     this.componentDidMount = this.componentDidMount.bind(this);
+    this.componentWillUnmount = this.componentWillUnmount.bind(this);
+    this.abortController = new AbortController()
   }
 
   componentDidMount() {
     const api = "https://spoon-call.herokuapp.com/instructions?id="+this.props.id
-    fetch(api)
+    fetch(api, {signal: this.abortController.signal})
       .then(promise => {
         return promise.json();
       }).then(data => {
@@ -20,7 +22,15 @@ class Instructions extends React.Component {
           return <li key={step.number}>{step.step}</li>
         });
       this.setState({instructions: instructions})
-      });
+      })
+      .catch(err => {
+        if (err.name === 'AbortError') return
+        throw err
+      })
+  }
+
+  componentWillUnmount() {
+    this.abortController.abort()
   }
 
   render() {
