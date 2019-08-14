@@ -4,7 +4,9 @@ import './App.css';
 
 function App() {
   return (
-    <RecipesList />
+    <div>
+      <RecipesList />
+    </div>
   );
 }
 
