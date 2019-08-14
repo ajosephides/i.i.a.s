@@ -4,7 +4,7 @@ import fetch from '../unit-test/mocks/recipeListFetch';
 describe('I.I.A.S', () => {
   it('the user can upload recipes inputing ingredients', async () => {
     const browser = await puppeteer.launch({
-      slowMo: 40,
+      slowMo: 40
       // This two lines below allows the dev to see the flow on the chromium page
       // headless: false,
       // devtools: true
