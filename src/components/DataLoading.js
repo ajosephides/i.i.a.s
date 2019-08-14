@@ -1,4 +1,5 @@
 import React from 'react';
+import Spinner from 'react-bootstrap/Spinner'
 
 class DataLoading extends React.Component {
 
@@ -9,9 +10,9 @@ class DataLoading extends React.Component {
     }
     else{
       return (
-        <div id="waitingData">
-          Please wait while we get the data from our partners.....
-        </div>
+          <Spinner animation="border" role="status">
+            <span className="sr-only">Please wait while we get the data from our partners.....</span>
+          </Spinner>  
       );
     }
   }
