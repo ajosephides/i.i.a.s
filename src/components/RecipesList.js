@@ -29,15 +29,28 @@ class RecipesList extends React.Component {
   onHandleSubmit(event) {
     this.setState({showDataLoading: true});
     const api = "https://spoon-call.herokuapp.com/?ingredients=" + this.state.ingredients.join(',')
-    fetch(api)
-      .then(promise => {
-        return promise.json();
-      }).then(data => {
-        let recipes = data.map((recipe) => {
-          return {id:recipe.id, title:recipe.title, image:recipe.image};
-        });
-        this.setState({recipes: recipes, showDataLoading: false})
-      });
+    // fetch(api)
+    //   .then(promise => {
+    //     return promise.json();
+    //   }).then(data => {
+    //     let recipes = data.map((recipe) => {
+    //       return {id:recipe.id, title:recipe.title, image:recipe.image};
+    //     });
+    //     this.setState({recipes: recipes, showDataLoading: false})
+    //   });
+      const recipes = [
+        {
+            "id": 73420,
+            "image": "https://spoonacular.com/recipeImages/73420-312x231.jpg",
+            "title": "Apple Or Peach Strudel"
+          },
+        {
+            "id": 632660,
+            "image": "https://spoonacular.com/recipeImages/632660-312x231.jpg",
+            "title": "Apricot Glazed Apple Tart"
+        }
+    ]
+    this.setState({recipes: recipes, showDataLoading: false})
     event.preventDefault();
   };
 
