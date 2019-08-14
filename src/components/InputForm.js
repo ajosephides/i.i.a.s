@@ -4,36 +4,36 @@ class InputForm extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
+    this.handleChangeAdd = this.handleChangeAdd.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
-    this.props.onHandleChange(event)
+    this.props.onHandleChange(event);
+  }
+
+  handleChangeAdd(event) {
+    this.props.onHandleChangeAdd(event);
+    event.preventDefault();
   }
 
   handleSubmit(event) {
-    this.props.onHandleSubmit(event)
-    event.preventDefault()
+    this.props.onHandleSubmit(event);
+    event.preventDefault();
   }
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form>
         <label>
-          Ingredient 1:
-          <input type="text" name = "ing1" value={this.props.ing1} onChange={this.handleChange} />
+          Ingredients:
+          <input type="text" name = "ing" value={this.props.ing} onChange={this.handleChange} />
+          <button id='add-button' onClick={this.handleChangeAdd}>
+              Add
+          </button>
         </label>
         <br />
-        <label> Ingredient 2:
-          <input type="text" name = "ing2" value={this.props.ing2} onChange={this.handleChange} />
-        </label>
-        <br />
-        <label>
-          Ingredient 3:
-          <input type="text" name = "ing3" value={this.props.ing3} onChange={this.handleChange} />
-        </label>
-        <br />
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Submit" onClick={this.handleSubmit}/>
       </form>
     );
   }
