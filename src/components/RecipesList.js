@@ -15,7 +15,7 @@ class RecipesList extends React.Component {
     };
     this.onHandleChange = this.onHandleChange.bind(this);
     this.onHandleChangeAdd = this.onHandleChangeAdd.bind(this);
-    this.onDeleteAt = this.onDeleteAt.bind(this);
+    this.onDeleteIngredient = this.onDeleteIngredient.bind(this);
     this.onHandleSubmit = this.onHandleSubmit.bind(this);
   };
 
@@ -28,7 +28,7 @@ class RecipesList extends React.Component {
     this.setState({ing: ""})
   };
 
-  onDeleteAt(index) {
+  onDeleteIngredient(index) {
     this.state.ingredients.splice(index, 1)
     this.setState({ ingredients: this.state.ingredients});
   }
@@ -65,7 +65,7 @@ class RecipesList extends React.Component {
               return <Ingredient key={this.state.ingredients.indexOf(ingredient)}
                                 text={ingredient}
                                 index={this.state.ingredients.indexOf(ingredient)}
-                                onDeleteAt={this.onDeleteAt} />
+                                onDeleteIngredient={this.onDeleteIngredient} />
             })}
           </ul>
         </div>
