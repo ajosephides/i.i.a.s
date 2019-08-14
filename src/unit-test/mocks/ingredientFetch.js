@@ -3,7 +3,6 @@ export default function() {
     json: () =>
       Promise.resolve({
         extendedIngredients: [{id: 1, original: '1 Tbsp butter'}]
-
     })
   });
 };
