@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Ingredient extends React.Component {
+class CurrentIngredient extends React.Component {
   constructor(props) {
     super(props);
     this.deleteIngredient = this.deleteIngredient.bind(this);
@@ -13,10 +13,10 @@ class Ingredient extends React.Component {
   render() {
     return (
      <li key={this.props.index}>
-     <button id='delete-button' onClick={this.deleteIngredient}>x </button>
+     <button id='delete-ingredient' onClick={this.deleteIngredient}>x </button>
      {this.props.text}
      </li>
     )
   }
 }
-export default Ingredient
+export default CurrentIngredient;

@@ -12,11 +12,11 @@ describe('I.I.A.S', () => {
     await page.goto('http://localhost:3000/');
     await page.waitForSelector('input[name="ing"]')
     await page.type('input[name="ing"]', 'potatoes');
-    await page.click('#add-button');
+    await page.click('#add-ingredient');
     await page.type('input[name="ing"]', 'sugar');
-    await page.click('#add-button');
+    await page.click('#add-ingredient');
     await page.type('input[name="ing"]', 'milk');
-    await page.click('#add-button');
+    await page.click('#add-ingredient');
     await page.setRequestInterception(true);
     await page.on('request', request => {
       if(request.resourceType(fetch)) {

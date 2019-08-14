@@ -1,7 +1,7 @@
 import React from 'react';
 import InputForm from './InputForm'
 import Recipe from './Recipe'
-import Ingredient from './Ingredient'
+import CurrentIngredient from './CurrentIngredient'
 import DataLoading from './DataLoading'
 
 class RecipesList extends React.Component {
@@ -62,7 +62,7 @@ class RecipesList extends React.Component {
         <div>
           <ul id='ing-list'>
             {this.state.ingredients.map((ingredient) => {
-              return <Ingredient key={this.state.ingredients.indexOf(ingredient)}
+              return <CurrentIngredient key={this.state.ingredients.indexOf(ingredient)}
                                 text={ingredient}
                                 index={this.state.ingredients.indexOf(ingredient)}
                                 onDeleteIngredient={this.onDeleteIngredient} />
@@ -86,4 +86,4 @@ class RecipesList extends React.Component {
     );
   }
 };
-export default RecipesList
+export default RecipesList;

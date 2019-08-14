@@ -51,10 +51,8 @@ describe('#onDeleteIngredient', () => {
     const wrapper = shallow(<RecipesList />);
     const instance = wrapper.instance()
     const index = 0
-    instance.ingredients = ['test']
-    console.log(instance.ingredients)
+    wrapper.setState({ingredients: ['test']})
     instance.onDeleteIngredient(index);
-    console.log(instance.ingredients)
-    expect(instance.ingredients).toEqual([]);
+    expect(wrapper.state('ingredients')).toEqual([]);
   })
 })
