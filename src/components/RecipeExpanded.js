@@ -8,12 +8,12 @@ class RecipeExpanded extends React.Component {
 render() {
     return (
       <div id="recipe-expanded">
-        <ol>
-          <Instructions id={this.props.id} />
-        </ol>
         <ul>
           <Ingredients id={this.props.id} />
         </ul>
+        <ol>
+          <Instructions id={this.props.id} />
+        </ol>
       </div>
     )
   }
