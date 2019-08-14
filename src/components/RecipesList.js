@@ -2,6 +2,7 @@ import React from 'react';
 import InputForm from './InputForm'
 import Recipe from './Recipe'
 import Ingredient from './Ingredient'
+import DataLoading from './DataLoading'
 
 class RecipesList extends React.Component {
   constructor(props) {
@@ -9,7 +10,8 @@ class RecipesList extends React.Component {
     this.state = {
       recipes: [],
       ing: '',
-      ingredients: []
+      ingredients: [],
+      showDataLoading: false
     };
     this.onHandleChange = this.onHandleChange.bind(this);
     this.onHandleChangeAdd = this.onHandleChangeAdd.bind(this);
@@ -32,6 +34,7 @@ class RecipesList extends React.Component {
   }
 
   onHandleSubmit(event) {
+    this.setState({showDataLoading: true});
     const api = "https://spoon-call.herokuapp.com/?ingredients=" + this.state.ingredients.join(',')
     fetch(api)
       .then(promise => {
@@ -42,6 +45,7 @@ class RecipesList extends React.Component {
         });
         this.setState({recipes: recipes})
         this.setState({ingredients: []})
+        this.setState({recipes: recipes, showDataLoading: false})
       });
     event.preventDefault();
   };
@@ -55,14 +59,17 @@ class RecipesList extends React.Component {
                      onHandleChangeAdd={this.onHandleChangeAdd}
                      onHandleSubmit={this.onHandleSubmit} />
         </div>
-        <ul id='ing-list'>
-          {this.state.ingredients.map((ingredient) => {
-            return <Ingredient key={this.state.ingredients.indexOf(ingredient)}
-                               text={ingredient}
-                               index={this.state.ingredients.indexOf(ingredient)}
-                               onDeleteAt={this.onDeleteAt} />
-          })}
-        </ul>
+        <div>
+          <ul id='ing-list'>
+            {this.state.ingredients.map((ingredient) => {
+              return <Ingredient key={this.state.ingredients.indexOf(ingredient)}
+                                text={ingredient}
+                                index={this.state.ingredients.indexOf(ingredient)}
+                                onDeleteAt={this.onDeleteAt} />
+            })}
+          </ul>
+        </div>
+        <div>
         <ul>
           {this.state.recipes.map((recipe) =>{
             return <Recipe key={recipe.id}
@@ -71,9 +78,12 @@ class RecipesList extends React.Component {
           })
           }
         </ul>
+        </div>
+        <div>
+          <DataLoading showDataLoading={this.state.showDataLoading} />
+        </div>
       </div>
     );
   }
 };
-
 export default RecipesList
