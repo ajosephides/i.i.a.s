@@ -46,7 +46,7 @@ it('call function onHandleSubmit on submit', () => {
 it('call function onHandleChangeAdd on click', () => {
   const onHandleChangeAddMock = jest.fn()
   const wrapper = shallow(<InputForm onHandleChangeAdd={onHandleChangeAddMock}/>)
-  const input1 = wrapper.find('#add-button')
+  const input1 = wrapper.find('#add-ingredient')
   const eventMock = {preventDefault:function(){}}
   input1.simulate('click', eventMock)
   expect(onHandleChangeAddMock).toBeCalled()
