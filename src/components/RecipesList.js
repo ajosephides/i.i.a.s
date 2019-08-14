@@ -1,7 +1,7 @@
 import React from 'react';
 import InputForm from './InputForm'
 import Recipe from './Recipe'
-import IngredientsList from './IngredientsList'
+import Ingredient from './Ingredient'
 
 class RecipesList extends React.Component {
   constructor(props) {
@@ -13,6 +13,7 @@ class RecipesList extends React.Component {
     };
     this.onHandleChange = this.onHandleChange.bind(this);
     this.onHandleChangeAdd = this.onHandleChangeAdd.bind(this);
+    this.onDeleteAt = this.onDeleteAt.bind(this);
     this.onHandleSubmit = this.onHandleSubmit.bind(this);
   };
 
@@ -24,6 +25,11 @@ class RecipesList extends React.Component {
     this.state.ingredients.push(this.state.ing);
     this.setState({ing: ""})
   };
+
+  onDeleteAt(index) {
+    this.state.ingredients.splice(index, 1)
+    this.setState({ ingredients: this.state.ingredients});
+  }
 
   onHandleSubmit(event) {
     const api = "https://spoon-call.herokuapp.com/?ingredients=" + this.state.ingredients.join(',')
@@ -40,7 +46,6 @@ class RecipesList extends React.Component {
     event.preventDefault();
   };
 
-
   render() {
     return (
       <div>
@@ -48,12 +53,16 @@ class RecipesList extends React.Component {
           <InputForm ing={this.state.ing}
                      onHandleChange={this.onHandleChange}
                      onHandleChangeAdd={this.onHandleChangeAdd}
-                     onHandleSubmit={this.onHandleSubmit}
-                     />
+                     onHandleSubmit={this.onHandleSubmit} />
         </div>
-        <div id='ing-list'>
-          <IngredientsList ingredients={this.state.ingredients} />
-        </div>
+        <ul id='ing-list'>
+          {this.state.ingredients.map((ingredient) => {
+            return <Ingredient key={this.state.ingredients.indexOf(ingredient)}
+                               text={ingredient}
+                               index={this.state.ingredients.indexOf(ingredient)}
+                               onDeleteAt={this.onDeleteAt} />
+          })}
+        </ul>
         <ul>
           {this.state.recipes.map((recipe) =>{
             return <Recipe key={recipe.id}
