@@ -1,4 +1,5 @@
 import React from 'react';
+import Form from 'react-bootstrap/Form'
 
 class InputForm extends React.Component {
   constructor(props) {
@@ -23,18 +24,27 @@ class InputForm extends React.Component {
   }
 
   render() {
+    const formStyle = {
+      padding: '1%',
+      backgroundColor: 'rgba(59, 59, 59, 0.692)',
+      fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
+    };
+    const inputStyle = {
+      backgroundColor: 'transparent',
+    }
     return (
-      <form>
-        <label>
-          Ingredients:
-          <input type="text" name = "ing" value={this.props.ing} onChange={this.handleChange} />
-          <button id='add-button' onClick={this.handleChangeAdd}>
-              Add
-          </button>
-        </label>
-        <br />
-        <input type="submit" value="Submit" onClick={this.handleSubmit}/>
-      </form>
+      <div className="fixed-bottom" >
+        <Form inline style={formStyle}  className="justify-content-center">
+          <label>
+            <input className={inputStyle} type="text" name = "ing" value={this.props.ing} placeholder='ingredients' onChange={this.handleChange} />
+            <button id='add-button' onClick={this.handleChangeAdd}>
+                Add
+            </button>
+          </label>
+          <br />
+          <input type="submit" value="Submit" onClick={this.handleSubmit}/>
+        </Form>
+      </div>
     );
   }
 }
