@@ -39,7 +39,6 @@
       "!src/index.js",
       "!src/serviceWorker.js",
       "!src/unit-test/mocks/fetch.js"
-
     ]
   }
 }
