@@ -40,7 +40,9 @@
       "src/**/*.{js,jsx}",
       "!src/index.js",
       "!src/serviceWorker.js",
-      "!src/unit-test/mocks/fetch.js"
+      "!src/unit-test/mocks/recipeListFetch.js",
+      "!src/unit-test/mocks/ingredientFetch.js",
+      "!src/unit-test/mocks/instructionFetch.js"
     ]
   }
 }

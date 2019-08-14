@@ -22,7 +22,7 @@ describe('I.I.A.S', () => {
       if(request.resourceType(fetch)) {
         request.respond({
           body: JSON.stringify(
-            [{id: 6, title: "Champ (Mashed Potatoes from Ulster)", image: "https://spoonacular.com/recipeImages/697254-312x231.jpg"}]        
+            [{id: 6, title: "Champ (Mashed Potatoes from Ulster)", image: "https://spoonacular.com/recipeImages/697254-312x231.jpg"}]
           )
         })
       }
