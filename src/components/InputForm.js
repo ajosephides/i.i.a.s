@@ -28,7 +28,7 @@ class InputForm extends React.Component {
         <label>
           Ingredients:
           <input type="text" name="ing" value={this.props.ing} onChange={this.handleChange} />
-          <button id='add-button' onClick={this.handleChangeAdd}>
+          <button id='add-ingredient' onClick={this.handleChangeAdd}>
              Add
           </button>
         </label>
