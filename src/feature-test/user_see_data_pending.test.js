@@ -3,8 +3,7 @@ import '../setupTest.js'
 describe('I.I.A.S', () => {
   it('the user sees a message that data is being loaded when submit is pressed and before a response is returned', async () => {
     try {
-      const browser = await puppeteer.launch({
-      });
+      const browser = await puppeteer.launch({});
       const page = await browser.newPage();
       await page.goto('http://localhost:3000/');
       await page.waitForSelector('input[name="ing"]')

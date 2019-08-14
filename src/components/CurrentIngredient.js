@@ -13,7 +13,7 @@ class CurrentIngredient extends React.Component {
   render() {
     return (
      <li key={this.props.index}>
-     <button id='delete-ingredient' onClick={this.deleteIngredient}>x </button>
+     <button id='delete-ingredient' onClick={this.deleteIngredient}>x</button>
      {this.props.text}
      </li>
     )

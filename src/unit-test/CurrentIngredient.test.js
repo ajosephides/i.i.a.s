@@ -9,7 +9,7 @@ it('render a ul html tag', () => {
 });
 
 it('renders the ingredient just inputed', () => {
-  expect(wrapper.text()).toEqual('x test')
+  expect(wrapper.text()).toEqual('xtest')
 });
 
 it('call function onDeleteIngredient when click on X', () => {
