@@ -8,11 +8,13 @@ class Ingredients extends React.Component {
     };
 
     this.componentDidMount = this.componentDidMount.bind(this);
+    this.componentWillUnmount = this.componentWillUnmount.bind(this);
+    this.abortController = new AbortController()
   }
 
   componentDidMount() {
     const api = "https://spoon-call.herokuapp.com/ingredients?id="+this.props.id
-    fetch(api)
+    fetch(api, {signal: this.abortController.signal})
       .then(promise => {
         return promise.json();
       }).then(data => {
@@ -20,9 +22,16 @@ class Ingredients extends React.Component {
             return <li key={ingredient.id}>{ingredient.original}</li>
           });
         this.setState({ingredients: ingredients})
-      });
+      }).catch(err => {
+        if (err.name === 'AbortError') return
+        throw err
+      })
   }
 
+  componentWillUnmount() {
+    this.abortController.abort()
+  }
+  
   render() {
     return (
       <div>
