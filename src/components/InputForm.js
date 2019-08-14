@@ -32,7 +32,6 @@ class InputForm extends React.Component {
              Add
           </button>
         </label>
-        <br />
         <input type="submit" value="Submit" onClick={this.handleSubmit}/>
       </form>
     );

@@ -43,9 +43,7 @@ class RecipesList extends React.Component {
         let recipes = data.map((recipe) => {
           return {id:recipe.id, title:recipe.title, image:recipe.image};
         });
-        this.setState({recipes: recipes})
-        this.setState({ingredients: []})
-        this.setState({recipes: recipes, showDataLoading: false})
+        this.setState({recipes: recipes, showDataLoading: false, ingredients: []})
       });
     event.preventDefault();
   };

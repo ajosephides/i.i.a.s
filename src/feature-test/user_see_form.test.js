@@ -2,12 +2,7 @@ import '../setupTest.js'
 
 describe('I.I.A.S', () => {
   it('the user can upload recipes inputing ingredients', async () => {
-    const browser = await puppeteer.launch({
-      // This two lines below allows the dev to see the flow on the chromium page
-      // slowMo: 40,
-      // headless: false,
-      // devtools: true
-    });
+    const browser = await puppeteer.launch({});
     const page = await browser.newPage();
     await page.goto('http://localhost:3000/');
     await page.waitForSelector('input[name="ing"]')

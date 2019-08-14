@@ -3,8 +3,7 @@ import fetch from '../unit-test/mocks/recipeListFetch';
 
 describe('I.I.A.S', () => {
   it('the user sees expanded recipe when clicking on title', async () => {
-    const browser = await puppeteer.launch({
-    });
+    const browser = await puppeteer.launch({});
     const page = await browser.newPage();
     await page.goto('http://localhost:3000/');
     await page.waitForSelector('input[name="ing"]')
