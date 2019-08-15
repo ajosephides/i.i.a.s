@@ -58,7 +58,7 @@ class RecipesList extends React.Component {
                      />
         </div>
           <div>
-            <Accordion>
+            <Accordion style={{padding: '0'}}>
               {this.state.recipes.map((recipe, index) =>{
                 return <Recipe key={recipe.id}
                                id={recipe.id}
