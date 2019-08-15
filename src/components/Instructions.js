@@ -14,7 +14,7 @@ class Instructions extends React.Component {
   }
 
   componentDidMount() {
-    const api = `https://api.spoonacular.com/recipes/${this.props.id}/analyzedInstructions?apiKey=e15954d9258e44c2a72e439a8051ffa9`
+    const api = "https://spoon-call.herokuapp.com/ingredients?id="+this.props.id
     fetch(api, {signal: this.abortController.signal})
       .then(promise => {
         return promise.json();
