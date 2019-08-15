@@ -24,13 +24,15 @@ class RecipesList extends React.Component {
   };
 
   onHandleChangeAdd() {
-    this.state.ingredients.push(this.state.ing);
+    const ingredients = this.state.ingredients
+    ingredients.push(this.state.ing);
     this.setState({ing: ""})
   };
 
   onDeleteIngredient(index) {
-    this.state.ingredients.splice(index, 1)
-    this.setState({ ingredients: this.state.ingredients});
+    const ingredient = this.state.ingredients
+    ingredient.splice(index, 1)
+    this.setState({ ingredients: ingredient });
   }
 
   onHandleSubmit(event) {
