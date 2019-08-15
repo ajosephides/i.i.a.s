@@ -1,23 +1,17 @@
 import '../setupTest.js'
-import fetch from '../unit-test/mocks/recipeListFetch';
 
 describe('I.I.A.S', () => {
   it('the user can upload recipes inputing ingredients', async () => {
-    const browser = await puppeteer.launch({
-      // This two lines below allows the dev to see the flow on the chromium page
-      // slowMo: 40,
-      // headless: false,
-      // devtools: true
-    });
+    const browser = await puppeteer.launch({});
     const page = await browser.newPage();
     await page.goto('http://localhost:3000/');
     await page.waitForSelector('input[name="ing"]')
     await page.type('input[name="ing"]', 'potatoes');
-    await page.click('#add-button');
+    await page.click('#add-ingredient');
     await page.type('input[name="ing"]', 'sugar');
-    await page.click('#add-button');
+    await page.click('#add-ingredient');
     await page.type('input[name="ing"]', 'milk');
-    await page.click('#add-button');
+    await page.click('#add-ingredient');
     await page.setRequestInterception(true);
     await page.on('request', request => {
       if(request.resourceType(fetch)) {
@@ -28,7 +22,7 @@ describe('I.I.A.S', () => {
         })
       }
     });
-    await page.click('input[type="submit"]');
+    await page.click('button[type="submit"]');
     await page.waitForSelector('img')
     const found = await page.evaluate(() => window.find("Champ"));
     expect(found).toBe(true)
