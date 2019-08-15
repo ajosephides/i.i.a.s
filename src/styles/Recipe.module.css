@@ -1,6 +1,5 @@
 
 .bg-img {
-  /* opacity: 0.2; */
   padding: 0px;
   margin-bottom: 0px;
   width: 100%;
@@ -24,7 +23,7 @@
 }
 
 .overlay {
-  background-color: rgba(14, 21, 56, 0.651);
+  background-color: rgba(26, 32, 63, 0.651);
   padding: 100%, 100%;
   padding: none;
   border: none;
@@ -32,7 +31,6 @@
 }
 
 .card-style {
-  /* opacity: 0.5; */
   border: none;
   padding: none;
   width: 100%;
