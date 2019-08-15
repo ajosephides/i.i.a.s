@@ -26,8 +26,6 @@ render() {
             </Col>
           </Row>
         </Container>
-
-
       </div>
     )
   }
