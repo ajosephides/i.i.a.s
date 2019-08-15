@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/Instructions.css';
 
 class Instructions extends React.Component {
   constructor(props) {
@@ -28,7 +29,7 @@ class Instructions extends React.Component {
     //     throw err
     //   })
     let instructions = testInstructions[0].steps.map((step) => {
-      return <li key={step.number}>{step.step}</li>
+      return <li className={"recipe-instruction-individual"} key={step.number}>{step.step}</li>
     });
     this.setState({instructions: instructions})
   }
