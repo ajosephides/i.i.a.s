@@ -14,10 +14,10 @@ class CurrentIngredient extends React.Component {
 
   render() {
     return (
-     <li key={this.props.index}>
+     <li key={this.props.index}  >
       <button id='delete-ingredient' style={{background: 'transparent', border: 'none'}} onClick={this.deleteIngredient}>
         <Clear/>
-        </button>
+      </button>
       {this.props.text}
      </li>
     )
