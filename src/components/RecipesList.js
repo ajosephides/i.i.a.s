@@ -66,7 +66,6 @@ class RecipesList extends React.Component {
                      />
         </div>
         <div>
-        <ul>
           {this.state.recipes.map((recipe) =>{
             return <Recipe key={recipe.id}
                            id={recipe.id}
@@ -74,7 +73,6 @@ class RecipesList extends React.Component {
                            image={recipe.image} />;
           })
           }
-        </ul>
         </div>
         <div>
           <DataLoading showDataLoading={this.state.showDataLoading} />
