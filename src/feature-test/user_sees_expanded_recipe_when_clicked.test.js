@@ -3,7 +3,11 @@ import fetch from '../unit-test/mocks/recipeListFetch';
 
 describe('I.I.A.S', () => {
   it('the user sees expanded recipe when clicking on title', async () => {
-    const browser = await puppeteer.launch({});
+    const browser = await puppeteer.launch({
+      // slowMo: 40,
+      // headless: false,
+      // devtools: true
+    });
     const page = await browser.newPage();
     await page.goto('http://localhost:3000/');
     await page.waitForSelector('input[name="ing"]')
@@ -39,13 +43,13 @@ describe('I.I.A.S', () => {
       }
     });
     await page.click('button[type="submit"]');
-    await page.waitForSelector('a[href="recipe"]')
-    await page.click('a[href="recipe"]')
+    await page.waitForSelector('#header-click')
+    await page.click('#header-click')
     await page.waitForSelector('#recipe-expanded')
     const found_ingredient = await page.evaluate(() => window.find('1 Tbsp butter'));
     expect(found_ingredient).toBe(true)
     const found_instruction = await page.evaluate(() => window.find('preheat the oven to 200 C'));
     expect(found_instruction).toBe(true)
     await browser.close();
-  });
+  }, 30000);
 });
