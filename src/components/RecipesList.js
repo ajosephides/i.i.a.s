@@ -1,4 +1,5 @@
 import React from 'react';
+import Accordion from 'react-bootstrap/Accordion'
 import InputForm from './InputForm'
 import Recipe from './Recipe'
 import DataLoading from './DataLoading'
@@ -57,15 +58,16 @@ class RecipesList extends React.Component {
                      />
         </div>
           <div>
-            <ul id="recipe-list" style={{paddingInlineStart: 0}}>
-              {this.state.recipes.map((recipe) =>{
+            <Accordion>
+              {this.state.recipes.map((recipe, index) =>{
                 return <Recipe key={recipe.id}
                                id={recipe.id}
                                title={recipe.title}
-                               image={recipe.image} />;
+                               image={recipe.image}
+                               eventIndex={index.toString()} />;
               })
               }
-            </ul>
+              </Accordion>
           </div>
         <div>
           <DataLoading showDataLoading={this.state.showDataLoading} />

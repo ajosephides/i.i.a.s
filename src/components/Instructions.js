@@ -27,10 +27,10 @@ class Instructions extends React.Component {
     //     if (err.name === 'AbortError') return
     //     throw err
     //   })
-  let instructions = testInstructions[0].steps.map((step) => {
+    let instructions = testInstructions[0].steps.map((step) => {
       return <li key={step.number}>{step.step}</li>
     });
-  this.setState({instructions: instructions})
+    this.setState({instructions: instructions})
   }
 
   componentWillUnmount() {
