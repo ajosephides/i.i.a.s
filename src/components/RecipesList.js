@@ -57,7 +57,7 @@ class RecipesList extends React.Component {
 
   render() {
     return (
-      <div style={{backgroundColor: 'black'}}>
+      <div>
         <div>
           <InputForm ing={this.state.ing}
                      onHandleChange={this.onHandleChange}

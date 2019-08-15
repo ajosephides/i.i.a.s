@@ -31,8 +31,7 @@ class InputForm extends React.Component {
   render() {
     return (
       <div>
-        <label>
-          <InputGroup className="mb-0 fixed-bottom" style={{}}>
+          <InputGroup className="mb-0 fixed-bottom">
             <InputGroup.Prepend>
               <InputGroup.Text id="basic-addon1" style={{backgroundColor: 'lightgrey', border: 'none'}}>
                 <LocalDining/>
@@ -55,7 +54,6 @@ class InputForm extends React.Component {
                 </Button>
             </InputGroup.Append>
           </InputGroup>
-        </label>
       </div>
     );
   }
