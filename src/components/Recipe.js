@@ -14,8 +14,8 @@ class Recipe extends React.Component {
   //   this.state = {
   //     showRecipeExpanded: false
   //   };
-  //   this.handleClick = this.handleClick.bind(this);
-  //   this.showRecipeExpanded = this.showRecipeExpanded.bind(this);
+  //   // this.handleClick = this.handleClick.bind(this);
+  //   // this.showRecipeExpanded = this.showRecipeExpanded.bind(this);
   // }
 
   // handleClick(event) {
@@ -25,7 +25,7 @@ class Recipe extends React.Component {
   //   );
   //   event.preventDefault()
   // }
-
+  //
   // showRecipeExpanded() {
   //   if (this.state.showRecipeExpanded) {
   //     return <div><RecipeExpanded id={this.props.id}/></div>
@@ -83,3 +83,4 @@ render() {
 }
 
 export default Recipe
+
