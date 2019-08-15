@@ -1,6 +1,7 @@
 import React from 'react';
 import InputForm from './InputForm'
 import Recipe from './Recipe'
+import CurrentIngredient from './CurrentIngredient'
 import DataLoading from './DataLoading'
 
 class RecipesList extends React.Component {
@@ -14,6 +15,7 @@ class RecipesList extends React.Component {
     };
     this.onHandleChange = this.onHandleChange.bind(this);
     this.onHandleChangeAdd = this.onHandleChangeAdd.bind(this);
+    this.onDeleteIngredient = this.onDeleteIngredient.bind(this);
     this.onHandleSubmit = this.onHandleSubmit.bind(this);
   };
 
@@ -22,9 +24,16 @@ class RecipesList extends React.Component {
   };
 
   onHandleChangeAdd() {
-    this.state.ingredients.push(this.state.ing);
+    const ingredients = this.state.ingredients
+    ingredients.push(this.state.ing);
     this.setState({ing: ""})
   };
+
+  onDeleteIngredient(index) {
+    const ingredient = this.state.ingredients
+    ingredient.splice(index, 1)
+    this.setState({ ingredients: ingredient });
+  }
 
   onHandleSubmit(event) {
     this.setState({showDataLoading: true});
@@ -36,30 +45,34 @@ class RecipesList extends React.Component {
         let recipes = data.map((recipe) => {
           return {id:recipe.id, title:recipe.title, image:recipe.image};
         });
-        this.setState({recipes: recipes, showDataLoading: false})
+        this.setState({recipes: recipes, showDataLoading: false, ingredients: []})
       });
     event.preventDefault();
   };
 
-
   render() {
-    const style ={
-      backgroundColor:'grey',
-      position: 'absolute',
-      height: '100%',
-      width: '100%',
-      margin: '0%'
-    }
     return (
-      <div style={style}>
+      <div>
+        <div>
+          <h3 align='center' style={{fontFamily: '', marginTop: '10px'}}>It is always soup</h3>
+        </div>
         <div>
           <InputForm ing={this.state.ing}
                      onHandleChange={this.onHandleChange}
                      onHandleChangeAdd={this.onHandleChangeAdd}
-                     onHandleSubmit={this.onHandleSubmit}
-                     />
+                     onHandleSubmit={this.onHandleSubmit} />
         </div>
         <div>
+          <ul id='ing-list'>
+            {this.state.ingredients.map((ingredient) => {
+              return <CurrentIngredient key={this.state.ingredients.indexOf(ingredient)}
+                                text={ingredient}
+                                index={this.state.ingredients.indexOf(ingredient)}
+                                onDeleteIngredient={this.onDeleteIngredient} />
+            })}
+          </ul>
+        </div>
+        <div >
         <ul>
           {this.state.recipes.map((recipe) =>{
             return <Recipe key={recipe.id}
@@ -77,4 +90,4 @@ class RecipesList extends React.Component {
     );
   }
 };
-export default RecipesList
+export default RecipesList;
