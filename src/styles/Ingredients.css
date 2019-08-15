@@ -1,5 +1,4 @@
 .recipe-ingredient-individual{
-  display: flex;
   border: 0;
   height: 10;
   align-items: center;
@@ -9,7 +8,6 @@
 }
 
 .recipe-ingredients{
-  display: flex;
   align-items: center;
   column-count: 2;
 }
