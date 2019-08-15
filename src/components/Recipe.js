@@ -61,9 +61,8 @@ render() {
   const props = this.props
   return (
       <Card className={styles['card-style']}>
-
-        <Card.Header className={styles['header']} style={{padding:'0'}} >
-          <Accordion.Toggle as={Card.Header} variant="link" eventKey={this.props.eventIndex}>
+        <Card.Header className={styles['header']}>
+          <Accordion.Toggle as={Card.Header} style={{padding: '0%'}} variant="link" eventKey={this.props.eventIndex}>
             <Card.Img className={styles['bg-img']} variant="top"  alt={props.title} src={props.image}/>
               <Card.ImgOverlay className={styles['overlay']}>
                 <Card.Title className={styles['heading']}>{props.title}</Card.Title>

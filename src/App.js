@@ -5,7 +5,12 @@ import './App.css';
 function App() {
   return (
     <div>
-      <RecipesList />
+      <div>
+        <h3 className="fixed-top" align='center' style={{fontFamily: "Pacifico, cursive", marginTop: '10px'}}>It is always soup</h3>
+      </div>
+      <div>
+        <RecipesList />
+      </div>
     </div>
   );
 }

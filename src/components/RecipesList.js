@@ -57,10 +57,7 @@ class RecipesList extends React.Component {
 
   render() {
     return (
-      <div>
-        <div>
-          <h3 align='center' style={{fontFamily: '', marginTop: '10px'}}>It is always soup</h3>
-        </div>
+      <div style={{backgroundColor: 'black'}}>
         <div>
           <InputForm ing={this.state.ing}
                      onHandleChange={this.onHandleChange}
@@ -78,7 +75,7 @@ class RecipesList extends React.Component {
           </ul>
         </div>
           <div>
-            <Accordion style={{padding: '0'}}>
+            <Accordion>
               {this.state.recipes.map((recipe, index) =>{
                 return <Recipe key={recipe.id}
                                id={recipe.id}
