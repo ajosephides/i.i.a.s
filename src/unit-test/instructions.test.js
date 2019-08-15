@@ -16,12 +16,3 @@ describe('#componentDidMount', () => {
     expect(fetchSpy).toBeCalled();
   })
 });
-
-// describe('#componentWillUnmount', () => {
-//   test('calls abortController', () => {
-//     const wrapper = shallow(<Instructions id={1}/>);
-//     const abortSpy = jest.spyOn(wrapper.instance(), 'abortController')
-//     wrapper.instance().componentWillUnmount()
-//     expect(abortSpy).toBeCalled();
-//   })
-// })
