@@ -15,11 +15,3 @@ it('renders the recipe image', () => {
   const wrapper = shallow(<Recipe image={imgUrl}/>);
   expect(wrapper.html()).toContain(imgUrl)
 });
-
-// it('checks behaviour of handleClick', () => {
-//   const wrapper = shallow(<Recipe title={'test'}/>);
-//   const event = {preventDefault: function(){}}
-//   expect(wrapper.state('showRecipeExpanded')).toEqual(false)
-//   wrapper.instance().handleClick(event)
-//   expect(wrapper.state('showRecipeExpanded')).toEqual(true)
-// })
