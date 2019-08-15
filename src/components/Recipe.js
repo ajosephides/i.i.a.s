@@ -82,5 +82,4 @@ render() {
   )
 }
 }
-
 export default Recipe

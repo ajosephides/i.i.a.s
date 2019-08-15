@@ -2,6 +2,7 @@ import React from 'react';
 import Accordion from 'react-bootstrap/Accordion'
 import InputForm from './InputForm'
 import Recipe from './Recipe'
+import CurrentIngredient from './CurrentIngredient'
 import DataLoading from './DataLoading'
 
 class RecipesList extends React.Component {
@@ -15,6 +16,7 @@ class RecipesList extends React.Component {
     };
     this.onHandleChange = this.onHandleChange.bind(this);
     this.onHandleChangeAdd = this.onHandleChangeAdd.bind(this);
+    this.onDeleteIngredient = this.onDeleteIngredient.bind(this);
     this.onHandleSubmit = this.onHandleSubmit.bind(this);
   };
 
@@ -23,9 +25,16 @@ class RecipesList extends React.Component {
   };
 
   onHandleChangeAdd() {
-    this.state.ingredients.push(this.state.ing);
+    const ingredients = this.state.ingredients
+    ingredients.push(this.state.ing);
     this.setState({ing: ""})
   };
+
+  onDeleteIngredient(index) {
+    const ingredient = this.state.ingredients
+    ingredient.splice(index, 1)
+    this.setState({ ingredients: ingredient });
+  }
 
   onHandleSubmit(event) {
     this.setState({showDataLoading: true});
@@ -46,16 +55,17 @@ class RecipesList extends React.Component {
     event.preventDefault();
   };
 
-
   render() {
     return (
       <div>
         <div>
+          <h3 align='center' style={{fontFamily: '', marginTop: '10px'}}>It is always soup</h3>
+        </div>
+        <div>
           <InputForm ing={this.state.ing}
                      onHandleChange={this.onHandleChange}
                      onHandleChangeAdd={this.onHandleChangeAdd}
-                     onHandleSubmit={this.onHandleSubmit}
-                     />
+                     onHandleSubmit={this.onHandleSubmit} />
         </div>
           <div>
             <Accordion style={{padding: '0'}}>

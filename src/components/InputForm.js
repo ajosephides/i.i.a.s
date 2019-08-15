@@ -1,4 +1,10 @@
 import React from 'react';
+import AddCircle from "@material-ui/icons/AddCircle";
+import Search from "@material-ui/icons/Search";
+import LocalDining from "@material-ui/icons/LocalDining";
+import InputGroup from 'react-bootstrap/InputGroup'
+import Button from 'react-bootstrap/Button'
+import FormControl from 'react-bootstrap/FormControl'
 
 class InputForm extends React.Component {
   constructor(props) {
@@ -24,17 +30,33 @@ class InputForm extends React.Component {
 
   render() {
     return (
-      <form>
+      <div>
         <label>
-          Ingredients:
-          <input type="text" name = "ing" value={this.props.ing} onChange={this.handleChange} />
-          <button id='add-button' onClick={this.handleChangeAdd}>
-              Add
-          </button>
+          <InputGroup className="mb-0 fixed-bottom" style={{}}>
+            <InputGroup.Prepend>
+              <InputGroup.Text id="basic-addon1" style={{backgroundColor: 'lightgrey', border: 'none'}}>
+                <LocalDining/>
+              </InputGroup.Text>
+            </InputGroup.Prepend>
+            <FormControl style={{backgroundColor: 'lightgrey'}}
+              aria-label='Add ingredient....' 
+              aria-describedby="basic-addon1"
+              type="text" name="ing" value={this.props.ing} 
+              placeholder='Add ingredient....' 
+              onChange={this.handleChange} />
+            <InputGroup.Append>
+                <Button id='add-ingredient' style={{backgroundColor: 'lightgrey', border: 'none'}} onClick={this.handleChangeAdd}>
+                  <AddCircle/>
+                </Button>
+            </InputGroup.Append>
+            <InputGroup.Append>
+                <Button type="submit" value="Submit" style={{backgroundColor: 'lightgrey', border: 'none'}} onClick={this.handleSubmit}>
+                <Search/>
+                </Button>
+            </InputGroup.Append>
+          </InputGroup>
         </label>
-        <br />
-        <input type="submit" value="Submit" onClick={this.handleSubmit}/>
-      </form>
+      </div>
     );
   }
 }
