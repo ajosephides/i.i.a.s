@@ -20,7 +20,7 @@ class Ingredients extends React.Component {
         return promise.json();
       }).then(data => {
         let ingredients = data.extendedIngredients.map((ingredient) => {
-            return <li key={ingredient.id}>{ingredient.original}</li>
+            return <li className="recipe-ingredient-individual" key={ingredient.id}>{ingredient.original}</li>
           });
         this.setState({ingredients: ingredients})
       }).catch(err => {
@@ -35,7 +35,7 @@ class Ingredients extends React.Component {
 
   render() {
     return (
-      <div className="recipe-ingredients-">
+      <div className="recipe-ingredients">
         {this.state.ingredients}
       </div>
     )

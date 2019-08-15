@@ -53,7 +53,10 @@ class RecipesList extends React.Component {
 
   render() {
     return (
-      <div style={{backgroundColor: 'black'}}>
+      <div style={{backgroundColor: 'white'}}>
+      <div>
+        <h3 className="fixed-top" align='center' style={{fontFamily: "Pacifico, cursive", marginTop: '10px'}}>It is always soup</h3>
+      </div>
         <div>
           <InputForm ing={this.state.ing}
                      onHandleChange={this.onHandleChange}
