@@ -27,12 +27,11 @@ class InputForm extends React.Component {
       <form>
         <label>
           Ingredients:
-          <input type="text" name = "ing" value={this.props.ing} onChange={this.handleChange} />
-          <button id='add-button' onClick={this.handleChangeAdd}>
-              Add
+          <input type="text" name="ing" value={this.props.ing} onChange={this.handleChange} />
+          <button id='add-ingredient' onClick={this.handleChangeAdd}>
+             Add
           </button>
         </label>
-        <br />
         <input type="submit" value="Submit" onClick={this.handleSubmit}/>
       </form>
     );
