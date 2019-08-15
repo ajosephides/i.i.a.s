@@ -46,3 +46,14 @@ describe('#onHandleChangeAdd', () => {
     expect(instance.state.ing).toEqual('');
   })
 })
+
+describe('#onDeleteIngredient', () => {
+  it('delete an ingredient from the array ingredients', () => {
+    const wrapper = shallow(<RecipesList />);
+    const instance = wrapper.instance()
+    const index = 0
+    wrapper.setState({ingredients: ['test']})
+    instance.onDeleteIngredient(index);
+    expect(wrapper.state('ingredients')).toEqual([]);
+  })
+})
