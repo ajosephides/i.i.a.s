@@ -1,6 +1,5 @@
 import React from 'react';
-// import ListGroup from 'react-bootstrap/Button';
-import Clear from "@material-ui/icons/Clear"; 
+import Clear from "@material-ui/icons/Clear";
 
 class CurrentIngredient extends React.Component {
   constructor(props) {

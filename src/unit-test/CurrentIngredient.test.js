@@ -1,7 +1,7 @@
 import '../setupTest.js'
 import CurrentIngredient from '../components/CurrentIngredient';
 let wrapper
-beforeEach( () => { 
+beforeEach( () => {
   wrapper = shallow(<CurrentIngredient text={'test'}/>) });
 
 it('render a ul html tag', () => {
@@ -9,7 +9,7 @@ it('render a ul html tag', () => {
 });
 
 it('renders the ingredient just inputed', () => {
-  expect(wrapper.text()).toEqual('xtest')
+  expect(wrapper.text()).toEqual('test')
 });
 
 it('call function onDeleteIngredient when click on X', () => {
