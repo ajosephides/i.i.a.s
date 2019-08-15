@@ -47,7 +47,8 @@ class RecipesList extends React.Component {
       backgroundColor:'grey',
       position: 'absolute',
       height: '100%',
-      width: '100%'
+      width: '100%',
+      margin: '0%'
     }
     return (
       <div style={style}>
