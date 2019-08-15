@@ -6,12 +6,7 @@ function App() {
   return (
     <div>
       <div>
-        <h3 className="fixed-top" align='center' 
-          style={{fontFamily: "Pacifico, cursive", marginTop: '10px', color: 'white'}}>
-          It is always soup</h3>
-      </div>
-      <div>
-        <RecipesList />
+        <RecipesList style={{topMargin: 20}}/>
       </div>
     </div>
   );
