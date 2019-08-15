@@ -68,7 +68,7 @@ class RecipesList extends React.Component {
                      onHandleSubmit={this.onHandleSubmit} />
         </div>
         <div>
-          <ul id='ing-list'>
+          <ul id='ing-list' className='fixed-bottom' style={{marginBottom: '5%'}}>
             {this.state.ingredients.map((ingredient) => {
               return <CurrentIngredient key={this.state.ingredients.indexOf(ingredient)}
                                 text={ingredient}
