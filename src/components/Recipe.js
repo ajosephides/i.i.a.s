@@ -60,17 +60,18 @@ class Recipe extends React.Component {
 render() {
   const props = this.props
   return (
-      <Card>
-        
-        <Card.Header>
-          <Accordion.Toggle as={Card.Header} variant="link" eventKey="1">
+      <Card className={styles['card-style']}>
+
+        <Card.Header className={styles['header']} style={{padding:'0'}} >
+          <Accordion.Toggle as={Card.Header} variant="link" eventKey={this.props.eventIndex}>
             <Card.Img className={styles['bg-img']} variant="top"  alt={props.title} src={props.image}/>
-              <Card.Title className={styles['heading']}>{props.title}</Card.Title>
-            
+              <Card.ImgOverlay className={styles['overlay']}>
+                <Card.Title className={styles['heading']}>{props.title}</Card.Title>
+              </Card.ImgOverlay>
           </Accordion.Toggle>
        </Card.Header>
-       
-       <Accordion.Collapse eventKey="1">
+
+       <Accordion.Collapse eventKey={this.props.eventIndex}>
          <Card.Body>
             <Card.Text>
               <RecipeExpanded id={this.props.id} />
@@ -83,4 +84,3 @@ render() {
 }
 
 export default Recipe
-

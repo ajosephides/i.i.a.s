@@ -7,12 +7,25 @@
 
 .heading {
   text-align: center;
-  vertical-align: middle;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  bottom: 50%;
+  position: static;
+  padding-top: 35%;
+  font-size: 6vw;
+  color: white;
+}
+
+.header {
+  padding: 0px;
+  background-color: white;
+  border-bottom: 0;
+}
+
+.overlay {
+  padding: 0px;
+  border-bottom: 0;
+}
+
+.card-style {
+  border: 0px;
+  padding: 0px;
   width: 100%;
-  font-size: 7vw;
 }
