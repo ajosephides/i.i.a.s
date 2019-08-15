@@ -3,17 +3,16 @@ import fetch from '../unit-test/mocks/recipeListFetch';
 
 describe('I.I.A.S', () => {
   it('the user sees expanded recipe when clicking on title', async () => {
-    const browser = await puppeteer.launch({
-    });
+    const browser = await puppeteer.launch({});
     const page = await browser.newPage();
     await page.goto('http://localhost:3000/');
     await page.waitForSelector('input[name="ing"]')
     await page.type('input[name="ing"]', 'potatoes');
-    await page.click('#add-button');
+    await page.click('#add-ingredient');
     await page.type('input[name="ing"]', 'sugar');
-    await page.click('#add-button');
+    await page.click('#add-ingredient');
     await page.type('input[name="ing"]', 'milk');
-    await page.click('#add-button');
+    await page.click('#add-ingredient');
     await page.setRequestInterception(true);
     await page.on('request', request => {
       var url = request.url();
@@ -39,7 +38,7 @@ describe('I.I.A.S', () => {
         }
       }
     });
-    await page.click('input[type="submit"]');
+    await page.click('button[type="submit"]');
     await page.waitForSelector('a[href="recipe"]')
     await page.click('a[href="recipe"]')
     await page.waitForSelector('#recipe-expanded')
