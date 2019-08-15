@@ -14,14 +14,14 @@ class Instructions extends React.Component {
   }
 
   componentDidMount() {
-    const api = "https://spoon-call.herokuapp.com/ingredients?id="+this.props.id
+    const api = "https://spoon-call.herokuapp.com/instructions?id="+this.props.id
     fetch(api, {signal: this.abortController.signal})
       .then(promise => {
         return promise.json();
       }).then(data => {
           if (data.length > 0) {
             let instructions = data[0].steps.map((step) => {
-                return <li key={step.number}>{step.step}</li>
+                return <li className="recipe-instruction-individual" key={step.number}>{step.step}</li>
             });
             this.setState({instructions: instructions})
           }
