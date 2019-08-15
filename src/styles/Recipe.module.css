@@ -9,7 +9,7 @@
 .heading {
   text-align: center;
   position: static;
-  padding-top: 35%;
+  padding-top: 25%;
   font-size: 200%;
   color: white;
   font-family: 'Pacifico', cursive;
@@ -17,24 +17,26 @@
 
 .header {
   padding: 0px;
+  padding-top: 0;
+  padding-bottom: 0;
   margin-bottom: 0px;
   margin-left: 0px;
   border-bottom: 0;
 }
 
 .overlay {
-  background-color: rgba(26, 32, 63, 0.651);
+  background: radial-gradient(circle, rgba(0,0,0,0.7105217086834734) 0%, rgba(22,22,22,0.7665441176470589) 46%, rgba(0,0,0,0.38279061624649857) 100%);
   padding: 100%, 100%;
   padding: none;
   border: none;
   border-bottom: 0%;
 }
 
-.card-style {
+/* .card-style {
   border: none;
   padding: none;
   width: 100%;
-}
+} */
 
 .card {
   margin-bottom: 0%;
