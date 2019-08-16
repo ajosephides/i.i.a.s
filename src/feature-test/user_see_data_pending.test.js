@@ -22,16 +22,16 @@ describe('I.I.A.S', () => {
         }
       });
 
-      await page.click('input[type="submit"]');
+      await page.click('button[type="submit"]');
 
       const pendingDataMessage = await page.evaluate(() => window.find("Please wait while we get the data from our partners....."));
       expect(pendingDataMessage).toBe(true)
-      
+
       await browser.close();
 
     } catch (error){
       console.log(error)
     }
-    
+
   });
 });
