@@ -14,19 +14,19 @@ class Ingredients extends React.Component {
   }
 
   componentDidMount() {
-    // const api = "https://spoon-call.herokuapp.com/ingredients?id="+this.props.id
-    // fetch(api, {signal: this.abortController.signal})
-    //   .then(promise => {
-    //     return promise.json();
-    //   }).then(data => {
-    //     let ingredients = data.extendedIngredients.map((ingredient) => {
-    //         return <li className="recipe-ingredient-individual" key={ingredient.id}>{ingredient.original}</li>
-    //       });
-    //     this.setState({ingredients: ingredients})
-    //   }).catch(err => {
-    //     if (err.name === 'AbortError') return
-    //     throw err
-    //   })
+    const api = "https://spoon-call.herokuapp.com/ingredients?id="+this.props.id
+    fetch(api, {signal: this.abortController.signal})
+      .then(promise => {
+        return promise.json();
+      }).then(data => {
+        let ingredients = data.extendedIngredients.map((ingredient) => {
+            return <li className="recipe-ingredient-individual" key={ingredient.id}>{ingredient.original}</li>
+          });
+        this.setState({ingredients: ingredients})
+      }).catch(err => {
+        if (err.name === 'AbortError') return
+        throw err
+      })
   }
 
   componentWillUnmount() {
