@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/Ingredients.css';
 
 class Ingredients extends React.Component {
   constructor(props) {
@@ -19,7 +20,7 @@ class Ingredients extends React.Component {
         return promise.json();
       }).then(data => {
         let ingredients = data.extendedIngredients.map((ingredient) => {
-            return <li key={ingredient.id}>{ingredient.original}</li>
+            return <li className="recipe-ingredient-individual" key={ingredient.id}>{ingredient.original}</li>
           });
         this.setState({ingredients: ingredients})
       }).catch(err => {
@@ -31,10 +32,10 @@ class Ingredients extends React.Component {
   componentWillUnmount() {
     this.abortController.abort()
   }
-  
+
   render() {
     return (
-      <div>
+      <div className="recipe-ingredients">
         {this.state.ingredients}
       </div>
     )

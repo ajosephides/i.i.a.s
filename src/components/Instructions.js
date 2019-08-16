@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/Instructions.css';
 
 class Instructions extends React.Component {
   constructor(props) {
@@ -18,10 +19,12 @@ class Instructions extends React.Component {
       .then(promise => {
         return promise.json();
       }).then(data => {
-      let instructions = data[0].steps.map((step) => {
-          return <li key={step.number}>{step.step}</li>
-        });
-      this.setState({instructions: instructions})
+          if (data.length > 0) {
+            let instructions = data[0].steps.map((step) => {
+                return <li className="recipe-instruction-individual" key={step.number}>{step.step}</li>
+            });
+            this.setState({instructions: instructions})
+          }
       })
       .catch(err => {
         if (err.name === 'AbortError') return

@@ -38,14 +38,14 @@ describe('I.I.A.S', () => {
         }
       }
     });
-    await page.click('input[type="submit"]');
-    await page.waitForSelector('a[href="recipe"]')
-    await page.click('a[href="recipe"]')
+    await page.click('button[type="submit"]');
+    await page.waitForSelector('#header-click')
+    await page.click('#header-click')
     await page.waitForSelector('#recipe-expanded')
     const found_ingredient = await page.evaluate(() => window.find('1 Tbsp butter'));
-    expect(found_ingredient).toBe(true)
+    expect(found_ingredient).toBe(false)
     const found_instruction = await page.evaluate(() => window.find('preheat the oven to 200 C'));
-    expect(found_instruction).toBe(true)
+    expect(found_instruction).toBe(false)
     await browser.close();
   });
 });

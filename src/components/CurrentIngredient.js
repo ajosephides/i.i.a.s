@@ -1,4 +1,5 @@
 import React from 'react';
+import Clear from "@material-ui/icons/Clear";
 
 class CurrentIngredient extends React.Component {
   constructor(props) {
@@ -12,9 +13,11 @@ class CurrentIngredient extends React.Component {
 
   render() {
     return (
-     <li key={this.props.index}>
-     <button id='delete-ingredient' onClick={this.deleteIngredient}>x</button>
-     {this.props.text}
+     <li key={this.props.index} style={{color: 'white'}} >
+      <button id='delete-ingredient' style={{background: 'transparent', border: 'none', color: 'white'}} onClick={this.deleteIngredient}>
+        <Clear />
+      </button>
+      {this.props.text}
      </li>
     )
   }
