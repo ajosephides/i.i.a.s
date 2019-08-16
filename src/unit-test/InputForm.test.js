@@ -11,7 +11,7 @@ it('renders without crashing', () => {
 });
 
 it('render a form', () => {
-  expect(wrapper.type()).toEqual('form')
+  expect(wrapper.type()).toEqual('div')
 });
 
 it('render 1 text box', () => {
@@ -20,10 +20,6 @@ it('render 1 text box', () => {
 
 it('render 1 submit button', () => {
   expect(wrapper.find({ type: "submit" })).toHaveLength(1);
-});
-
-it('the page includes text Ingredients and Add', () => {
-  expect(wrapper.text()).toEqual("Ingredients:Add");
 });
 
 it('call function onHandleChange on text field change', () => {

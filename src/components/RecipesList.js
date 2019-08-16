@@ -1,4 +1,5 @@
 import React from 'react';
+import Accordion from 'react-bootstrap/Accordion'
 import InputForm from './InputForm'
 import Recipe from './Recipe'
 import CurrentIngredient from './CurrentIngredient'
@@ -53,6 +54,12 @@ class RecipesList extends React.Component {
   render() {
     return (
       <div>
+      <div>
+        <h4 className="fixed-top" align='center'
+        style={{fontFamily: "Pacifico", color: 'lightgrey', padding: '3%',
+        background: 'linear-gradient(180deg, rgba(42,42,42,1) 0%, rgba(24,24,24,0) 100%, rgba(0,0,0,0) 100%)'
+        }}>It is always soup</h4>
+      </div>
         <div>
           <InputForm ing={this.state.ing}
                      onHandleChange={this.onHandleChange}
@@ -60,7 +67,7 @@ class RecipesList extends React.Component {
                      onHandleSubmit={this.onHandleSubmit} />
         </div>
         <div>
-          <ul id='ing-list'>
+          <ul id='ing-list' className='fixed-bottom' style={{marginBottom: '45px', listStyleType: 'none'}}>
             {this.state.ingredients.map((ingredient) => {
               return <CurrentIngredient key={this.state.ingredients.indexOf(ingredient)}
                                 text={ingredient}
@@ -69,17 +76,18 @@ class RecipesList extends React.Component {
             })}
           </ul>
         </div>
-        <div>
-        <ul>
-          {this.state.recipes.map((recipe) =>{
-            return <Recipe key={recipe.id}
-                           id={recipe.id}
-                           title={recipe.title}
-                           image={recipe.image} />;
-          })
-          }
-        </ul>
-        </div>
+          <div>
+            <Accordion>
+              {this.state.recipes.map((recipe, index) =>{
+                return <Recipe key={recipe.id}
+                               id={recipe.id}
+                               title={recipe.title}
+                               image={recipe.image}
+                               eventIndex={index.toString()} />;
+              })
+              }
+              </Accordion>
+          </div>
         <div>
           <DataLoading showDataLoading={this.state.showDataLoading} />
         </div>
@@ -87,4 +95,4 @@ class RecipesList extends React.Component {
     );
   }
 };
-export default RecipesList;
+export default RecipesList

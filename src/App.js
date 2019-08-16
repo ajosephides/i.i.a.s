@@ -5,7 +5,9 @@ import './App.css';
 function App() {
   return (
     <div>
-      <RecipesList />
+      <div>
+        <RecipesList style={{topMargin: 20}}/>
+      </div>
     </div>
   );
 }

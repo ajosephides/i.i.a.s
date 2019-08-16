@@ -22,7 +22,7 @@ describe('I.I.A.S', () => {
         })
       }
     });
-    await page.click('input[type="submit"]');
+    await page.click('button[type="submit"]');
     await page.waitForSelector('img')
     const found = await page.evaluate(() => window.find("Champ"));
     expect(found).toBe(true)
