@@ -1,7 +1,7 @@
 # It Is Always Soup
 
 ## Introduction
-The final team project for Makers Academy. A team of 3 were given just under 2 weeks to go from a vague brief to a full production application.
+The final team project for Makers Academy. A team of 3 were given just 8 days to go from a vague brief to a full production application.
 
 **Our brief** - an eco themed application. <br>
 **Our solution** - a tool to help a user find recipes from their kitchen contents.<br>
@@ -20,6 +20,7 @@ We used the following technologies:<br>
 * **React** - project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). <br>
 * **CI/CD** - Travis integrated with Firebase<br>
 * **Testing** - unit tests in [Jest](https://jestjs.io/)/[Enzyme](https://airbnb.io/enzyme/) and feature tests in [Puppeteer](https://github.com/GoogleChrome/puppeteer)
+* **API Proxy** - a lightweight Sinatra Ruby server was also incorporated into the product that proxies our API requests.
 
 -----------------------
 ## Learnings
@@ -50,7 +51,7 @@ The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
 
 ### `npm test`
-Launches the test runner in the interactive watch mode.
+Launches the test runner and shows the test coverage.
 
 ### `npm run build`
 Builds the app for production to the `build` folder.<br>
