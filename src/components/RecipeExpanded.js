@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row'
 import Container from 'react-bootstrap/Container'
 import Ingredients from './Ingredients'
 import Instructions from './Instructions'
-import '../styles/RecipeExpanded.css';
+import styles from '../styles/RecipeExpanded.css';
 
 
 class RecipeExpanded extends React.Component {
@@ -15,12 +15,12 @@ render() {
         <Container>
           <Row>
             <Col sm="12" lg={true}>
-              <div id="recipe-expanded-ingredients" style={{ listStyleType: "none" }}>
+              <div id="recipe-expanded-ingredients" className={styles['recipe-expanded-ingredients']} /*style={{ listStyleType: "none" }}*/>
                 <Ingredients id={this.props.id} />
               </div>
             </Col>
             <Col sm="12" lg={true}>
-              <ol id="recipe-expanded-instructions" style={{paddingInlineStart: 20}}>
+              <ol id="recipe-expanded-instructions" className={styles['recipe-expanded-instructions']} /*style={{paddingInlineStart: 20}}*/>
                 <Instructions id={this.props.id} />
               </ol>
             </Col>

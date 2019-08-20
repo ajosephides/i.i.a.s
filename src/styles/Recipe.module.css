@@ -1,8 +1,8 @@
 .heading {
   text-align: center;
-  position: static;
+  /* position: static; */
   padding-top: 35%;
-  font-size: calc(1.4em + 1.4vw);
+  font-size: calc(1em + 1vw);
   color: white;
   font-family: 'Pacifico', cursive;
 }
@@ -11,6 +11,7 @@
   border: none;
 }
 
-.overlay {
-  background: radial-gradient(circle, rgba(69,69,69,0.501138952164009) 0%, rgba(69,69,69,0.18678815489749434) 66%, rgba(69,69,69,0.038724373576309756) 100%);
+.header {
+  padding: 0%;
+  /* align-content: centre; */
 }

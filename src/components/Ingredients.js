@@ -9,8 +9,8 @@ class Ingredients extends React.Component {
     };
 
     this.componentDidMount = this.componentDidMount.bind(this);
-    // this.componentWillUnmount = this.componentWillUnmount.bind(this);
-    // this.abortController = new AbortController()
+    this.componentWillUnmount = this.componentWillUnmount.bind(this);
+    this.abortController = new AbortController();
   }
 
   componentDidMount() {
@@ -33,9 +33,9 @@ class Ingredients extends React.Component {
   this.setState({ingredients: ingredients})
   }
 
-  // componentWillUnmount() {
-  //   // this.abortController.abort()
-  // }
+  componentWillUnmount() {
+    this.abortController.abort()
+  }
 
   render() {
     return (

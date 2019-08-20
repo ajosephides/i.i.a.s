@@ -9,8 +9,8 @@ class Recipe extends React.Component {
     const props = this.props
     return (
         <Card className={styles['card-style']}>
-          <Card.Header id="header-click" style={{padding:'0%'}} >
-            <Accordion.Toggle as={Card.Header} style={{padding:'0%'}} variant="link" eventKey={this.props.eventIndex}>
+          <Card.Header id="header-click" className={styles['header']}>
+            <Accordion.Toggle as={Card.Header} className={styles['header']} variant="link" eventKey={this.props.eventIndex}>
               <Card.Img variant="top"  alt={props.title} src={props.image}/>
                 <Card.ImgOverlay className={styles['overlay']}>
                   <Card.Title className={styles['heading']}>{props.title}</Card.Title>

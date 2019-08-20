@@ -1,10 +1,11 @@
 .recipe-expanded-instructions{
-  align-content: center;
-  display: flex;
-  padding-top: 10px;
-  padding-left: 0px;
+  /* align-content: center; */
+  /* display: flex; */
+  /* padding-top: 10px; */
+  /* padding-left: 0px; */
+  /* list-style-type: none; */
 }
 
 .recipe-expanded-ingredients{
-  padding-bottom: 15px;
+  /* padding-bottom: 15px; */
 }
