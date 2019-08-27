@@ -7,12 +7,37 @@
   background-color: lightgrey;
 }
 
+.formControl:hover {
+  background-color: lightgrey;
+}
+
 .button-circle {
+  color: rgb(80, 80, 87);
   background-color: lightgrey;
   border: none;
 }
 
-.button-submit {
+.button-circle:hover {
   background-color: lightgrey;
+  border: none;
+}
+
+.button-circle:active {
+  background-color: lightgrey !important;
+}
+
+.button-submit {
+  color: rgb(80, 80, 87);
+  background-color: lightgrey;
+  border: none;
+}
+
+.button-submit:hover {
+  background-color: lightgrey;
+  border: none;
+}
+
+.button-submit:active {
+  background-color: lightgrey !important;
   border: none;
 }

@@ -1,12 +1,9 @@
-.body {
-  height: 100%;
-  background-position: center;
+Body {
+  height: 100vh;
+  background-image: url("https://images.unsplash.com/photo-1532980400857-e8d9d275d858?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60)");
   background-repeat: no-repeat;
-  background-size: auto;
-
-
+  background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
 } 

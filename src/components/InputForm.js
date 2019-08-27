@@ -39,7 +39,6 @@ class InputForm extends React.Component {
               </InputGroup.Text>
             </InputGroup.Prepend>
             <FormControl className='formControl'
-            
               type="text" name="ing" value={this.props.ing} 
               placeholder='Add ingredient....' 
               onChange={this.handleChange} />
