@@ -28,7 +28,7 @@ class Ingredients extends React.Component {
     //     throw err
     //   })
     let ingredients = testIngredients.extendedIngredients.map((ingredient) => {
-      return <li key={ingredient.id} className={"recipe-ingredient-individual"}>{ingredient.original}</li>
+      return <li key={ingredient.id} className="recipe-ingredient-individual" >{ingredient.original}</li>
     });
   this.setState({ingredients: ingredients})
   }

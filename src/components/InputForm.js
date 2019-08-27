@@ -5,6 +5,7 @@ import LocalDining from "@material-ui/icons/LocalDining";
 import InputGroup from 'react-bootstrap/InputGroup'
 import Button from 'react-bootstrap/Button'
 import FormControl from 'react-bootstrap/FormControl'
+import '../styles/inputForm.css'
 
 class InputForm extends React.Component {
   constructor(props) {
@@ -33,23 +34,22 @@ class InputForm extends React.Component {
       <div>
           <InputGroup className="mb-0 fixed-bottom">
             <InputGroup.Prepend>
-              <InputGroup.Text id="basic-addon1" style={{backgroundColor: 'lightgrey', border: 'none'}}>
+              <InputGroup.Text id="basic-addon1" className='input-group-text' >
                 <LocalDining/>
               </InputGroup.Text>
             </InputGroup.Prepend>
-            <FormControl style={{backgroundColor: 'lightgrey'}}
-              aria-label='Add ingredient....' 
-              aria-describedby="basic-addon1"
+            <FormControl className='formControl'
+              
               type="text" name="ing" value={this.props.ing} 
               placeholder='Add ingredient....' 
               onChange={this.handleChange} />
             <InputGroup.Append>
-                <Button id='add-ingredient' style={{backgroundColor: 'lightgrey', border: 'none'}} onClick={this.handleChangeAdd}>
+                <Button id='add-ingredient' className='button-circle' onClick={this.handleChangeAdd}>
                   <AddCircle/>
                 </Button>
             </InputGroup.Append>
             <InputGroup.Append>
-                <Button type="submit" value="Submit" style={{backgroundColor: 'lightgrey', border: 'none'}} onClick={this.handleSubmit}>
+                <Button className='button-submit' type="submit" value="Submit" onClick={this.handleSubmit}>
                 <Search/>
                 </Button>
             </InputGroup.Append>

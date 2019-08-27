@@ -32,7 +32,7 @@ class Instructions extends React.Component {
     //   })
 
     let instructions = testInstructions[0].steps.map((step) => {
-      return <li className={"recipe-instruction-individual"} key={step.number}>{step.step}</li>
+      return <li className='recipe-instruction-individual' key={step.number}>{step.step}</li>
     });
     this.setState({instructions: instructions})
   }
