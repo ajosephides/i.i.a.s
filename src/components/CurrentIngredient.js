@@ -1,5 +1,5 @@
 import React from 'react';
-import Clear from "@material-ui/icons/Clear";
+import Clear from "@material-ui/icons/Clear"
 import '../styles/currentIngredient.css'
 
 class CurrentIngredient extends React.Component {
@@ -23,4 +23,5 @@ class CurrentIngredient extends React.Component {
     )
   }
 }
+
 export default CurrentIngredient;
