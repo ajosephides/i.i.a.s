@@ -16,15 +16,15 @@ class Recipe extends React.Component {
                   <Card.Title className='heading'>{props.title}</Card.Title>
                 </Card.ImgOverlay>
             </Accordion.Toggle>
-         </Card.Header>
+          </Card.Header>
 
-         <Accordion.Collapse eventKey={this.props.eventIndex}>
-           <Card.Body>
+          <Accordion.Collapse eventKey={this.props.eventIndex}>
+            <Card.Body>
               <Card.Text>
                 <RecipeExpanded id={this.props.id} />
               </Card.Text>
             </Card.Body>
-         </Accordion.Collapse>
+          </Accordion.Collapse>
         </Card>
     )
   }
