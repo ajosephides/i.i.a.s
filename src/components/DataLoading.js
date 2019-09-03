@@ -1,5 +1,6 @@
 import React from 'react';
 import Spinner from 'react-bootstrap/Spinner'
+import '../styles/dataLoading.css';
 
 class DataLoading extends React.Component {
 
@@ -10,7 +11,7 @@ class DataLoading extends React.Component {
     }
     else{
       return (
-          <Spinner animation="border" role="status" style={{float: 'left', marginTop: '50%', marginLeft: '45%', color: 'grey'}}>
+          <Spinner animation="border" role="status" className='wheel-style'>
             <span className="sr-only">Please wait while we get the data from our partners.....</span>
           </Spinner>  
       );

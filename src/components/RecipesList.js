@@ -4,6 +4,7 @@ import InputForm from './InputForm'
 import Recipe from './Recipe'
 import CurrentIngredient from './CurrentIngredient'
 import DataLoading from './DataLoading'
+import '../styles/recipeList.css'
 
 class RecipesList extends React.Component {
   constructor(props) {
@@ -55,10 +56,7 @@ class RecipesList extends React.Component {
     return (
       <div>
       <div>
-        <h4 className="fixed-top" align='center'
-        style={{fontFamily: "Pacifico", color: 'lightgrey', padding: '3%',
-        background: 'linear-gradient(180deg, rgba(42,42,42,1) 0%, rgba(24,24,24,0) 100%, rgba(0,0,0,0) 100%)'
-        }}>It is always soup</h4>
+        <h4 className="fixed-top">It is always soup</h4>
       </div>
         <div>
           <InputForm ing={this.state.ing}
@@ -67,7 +65,7 @@ class RecipesList extends React.Component {
                      onHandleSubmit={this.onHandleSubmit} />
         </div>
         <div>
-          <ul id='ing-list' className='fixed-bottom' style={{marginBottom: '45px', listStyleType: 'none'}}>
+          <ul id='ing-list' className='fixed-bottom'>
             {this.state.ingredients.map((ingredient) => {
               return <CurrentIngredient key={this.state.ingredients.indexOf(ingredient)}
                                 text={ingredient}
@@ -95,4 +93,5 @@ class RecipesList extends React.Component {
     );
   }
 };
+
 export default RecipesList

@@ -1,0 +1,18 @@
+.heading {
+  text-align: center;
+  position: static;
+  padding-top: 35%;
+  font-size: calc(1em + 1vw);
+  color: white;
+  font-family: 'Pacifico', cursive;
+}
+
+.card-style {
+  padding: 0%;
+  border: none;
+}
+
+.header {
+  padding: 0%;
+  border: none;
+}
